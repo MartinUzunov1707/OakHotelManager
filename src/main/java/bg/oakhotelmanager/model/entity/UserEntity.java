@@ -14,13 +14,21 @@ public class UserEntity extends BaseEntity{
     private String password;
     private String firstName;
     private String lastName;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<UserRoleEntity> roles = new ArrayList<>();
+
+    public List<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentEntity> comments) {
+        this.comments = comments;
+    }
 
     @OneToMany
     private List<CommentEntity> comments;

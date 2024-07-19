@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      >
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse d-flex justify-content-center position-absolute top-50 start-50 translate-middle" style="text-align: center;" id="navbarNav">
             <ul class="navbar-nav row ">
                 <li class="h4 nav-item col-md-4">
-                    <a class="nav-link  h4 " href="/">About Us</a>
+                    <a class="nav-link h4" href="/">About Us</a>
                 </li>
 
                 <li class="h4 nav-item col-md-4">
@@ -29,16 +29,16 @@
         </div>
         <div class="collapse navbar-collapse d-flex justify-content-end mx-5" id="navbar">
             <ul class="navbar-nav row ">
-                <li class="h4 nav-item col-md-4">
-                    <a class="nav-link  h4 " href="/">Login</a>
+                <li class="h4 nav-item col-md-4" sec:authorize="isAnonymous()">
+                    <a class="nav-link h4"  th:href="@{/login}">Login</a>
                 </li>
 
-                <li class="h4 nav-item col-md-4">
-                    <a class="nav-link   h4 " href="/">Register</a>
+                <li class="h4 nav-item col-md-4" sec:authorize="isAnonymous()">
+                    <a class="nav-link h4" th:href="@{/register}">Register</a>
                 </li>
-                <li class="h4 nav-item col-md-4">
-                    <a class="nav-link   h4 " href="/">Logout</a>
-                </li>
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                    <input class="btn btn" type="submit" value="Logout"/>
+                </form>
             </ul>
         </div>
     </nav>

@@ -5,6 +5,11 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
+    <h4 class = "text-center mt-5">Welcome to the Oak Hotel,
+        <th:block th:text="${welcomeMessage}"></th:block>
+        !
+    </h4>
+    <hr class = "w-75 mx-auto">
     <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
         <h3 class = "opacity-75">Rated 9.3 on Booking.com</h3>
         <h1 class = "pt-5">Discover paradise on Earth - The Oak Hotel</h1>
@@ -14,9 +19,9 @@
     <h6 class = "text-center mt-3">Hear the silence of the mountain</h6>
     <hr class = "w-75 m-auto">
 
-    <div class ="d-flex about-us-article m-auto my-5 justify-content-between">
-        <img src="/images/oakLogo.png" alt="">
-        <div class = "d-flex flex-column justify-content-center">
+    <div class ="d-flex about-us-article m-auto my-5 justify-content-evenly">
+        <img class = "ms-5" src="/images/oakLogo.png" alt="">
+        <div class = "d-flex flex-column justify-content-center w-50">
             <p class = "h3">Hidden away in the heart of the Rhodopa Mountain, our hotel brings you a feeling of peace and quiet, away from the problems of the world. Be embraced by the mountain's hospitality. The Oak Hotel offers everything you need for your vacation.</p>
             <a class = "index-book-btn h6" href="about-us.html">Learn more</a>
         </div>
@@ -25,7 +30,7 @@
 
     <h1 class = "text-center mt-5">Ready to go?</h1>
     <h4 class = "text-center mb-5">Pick the room which suits you best</h4>
-    <div class = "d-flex justify-content-evenly">
+    <div class = "d-flex justify-content-evenly mb-5">
         <div class = "room-select">
             <img src="/images/double-room.jpg" alt="">
             <h4 class = "text-center my-3 m-auto">Double room</h4>

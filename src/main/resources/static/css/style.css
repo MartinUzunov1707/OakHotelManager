@@ -1,10 +1,11 @@
-
-body
-{
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     color:black;
 }
 footer{
-    margin-top:3em;
+    margin-top:auto;
     background-color: lightgray;
 }
 .nav-logo{

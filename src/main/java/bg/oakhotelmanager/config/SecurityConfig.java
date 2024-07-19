@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -21,15 +22,16 @@ public class SecurityConfig {
                         authorizeRequest->
                         authorizeRequest
                                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                                .requestMatchers("/","/login", "/register", "/static/js/**").permitAll()
-                                .anyRequest().authenticated()
+                                .requestMatchers("/","/login", "/register").permitAll()
+                                .anyRequest()
+                                .authenticated()
                 )
                 .formLogin(
                         //TODO
                         formLogin -> formLogin.loginPage("/login")
                                 .usernameParameter("email")
                                 .passwordParameter("password")
-                                .defaultSuccessUrl("/home",true)
+                                .defaultSuccessUrl("/",true)
                                 .failureForwardUrl("/")
                 )
                 .logout(

@@ -21,17 +21,14 @@ public class OakUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return userRepository
-                .findByEmail(username)
+                .findByEmail(email)
                 .map(OakUserDetailsService::map)
                 .orElseThrow(
-                        ()-> new UsernameNotFoundException("User with email " + username + " not found.")
+                        ()-> new UsernameNotFoundException("User with email " + email + " not found.")
                 );
     }
-
-
-
 
     private static UserDetails map(UserEntity userEntity) {
 
