@@ -13,7 +13,7 @@
     <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
         <h3 class = "opacity-75">Rated 9.3 on Booking.com</h3>
         <h1 class = "pt-5">Discover paradise on Earth - The Oak Hotel</h1>
-        <a class = "index-book-btn" href="reservation.html">Book Now</a>
+        <button onclick = "scrollToBookSection()" class = "index-book-btn btn-book" id = "scrollBtn">Book Now</button>
     </div>
     <h1 class = "text-center mt-5">The Oak Hotel</h1>
     <h6 class = "text-center mt-3">Hear the silence of the mountain</h6>
@@ -31,15 +31,15 @@
     <h1 class = "text-center mt-5">Ready to go?</h1>
     <h4 class = "text-center mb-5">Pick the room which suits you best</h4>
     <div class = "d-flex justify-content-evenly mb-5">
-        <div class = "room-select">
+        <div onclick = "" id = "double-room" class = "room-select">
             <img src="/images/double-room.jpg" alt="">
             <h4 class = "text-center my-3 m-auto">Double room</h4>
         </div>
-        <div class = "room-select">
+        <div onclick = "" id = "triple-room" class = "room-select">
             <img src="/images/triple-room.jpg" alt="">
-            <h4 class = " m-auto my-3 text-center">Triple room</h4>
+            <h4 class ="m-auto my-3 text-center">Triple room</h4>
         </div>
-        <div class = "room-select">
+        <div onclick =  "" id = "apartment" class = "room-select">
             <img src="/images/apartment.jpg" alt="">
             <h4 class = "text-center my-3 m-auto">Apartment</h4>
         </div>
