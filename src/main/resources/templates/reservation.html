@@ -5,60 +5,102 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add word</span></h1>
-    <hr class="hr-3 w-25 bg-white"/>
+    <h1 class="text-center mt-2">Make reservation</h1>
+    <hr class="w-75 mx-auto"/>
 
-    <form class="mx-auto w-25 bg-blur rounded" method="" action="">
+    <h4 th:if = "${roomCapacityNotEnough.length()>0}" th:text="${roomCapacityNotEnough}" class = "text-danger text-center">Room Capacity Not Enough</h4>
+    <h4 th:if = "${outOfRooms}" class = "text-danger text-center">The Oak Hotel does not have available rooms for these dates.</h4>
+    <form class="mx-auto w-25 bg-blur rounded"
+          method="post"
+          th:action="@{/rooms/reservation}"
+          th:object="${reservationDTO}"
+    >
 
         <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="term" class="h4 mb-2">Term</label>
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label th:for="phoneNumber" class="h4 mb-2">Phone Number</label>
             </div>
-            <textarea type="text" class="form-control" id="term" name="term"></textarea>
-            <small class="text-danger">Term error message</small>
+            <input type="text" class="form-control" id="term" name="term" th:field="*{phoneNumber}"></input>
+            <small class="text-danger" th:errors = "*{phoneNumber}">Phone number error message</small>
         </div>
 
         <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="translation" class="h4 mb-2">Translation</label>
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label th:for="checkInDate" class="h4 mb-2 mt-3">Set check in date</label>
             </div>
-            <textarea type="text" class="form-control" id="translation" name="translation"></textarea>
-            <small class="text-danger">Translation error message</small>
+            <input type="date" class="form-control" id="checkInDate" name="inputDate" th:field="*{checkInDate}"/>
+            <small class="text-danger" th:errors = "*{checkInDate}">Check In Date error message</small>
         </div>
 
         <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="example" class="h4 mb-2">Example</label>
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label th:for="checkOutDate" class="h4 mb-2 mt-3">Set check out date</label>
             </div>
-            <textarea type="text" class="form-control" id="example" name="example"></textarea>
-            <small class="text-danger">Example error message</small>
+            <input type="date" class="form-control" id="checkoutDate" name="inputDate" th:field="*{checkOutDate}"/>
+            <small class="text-danger" th:errors="*{checkOutDate}">Check out date error message</small>
         </div>
 
-        <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="inputDate" class="h4 mb-2">Set input date</label>
-            </div>
-            <input type="date" class="form-control" id="inputDate" name="inputDate"/>
-            <small class="text-danger">Input Date error message</small>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <div class="label-holder textCol d-flex justify-content-center">-->
+<!--                <label for="adultAmount" class="h4 mb-2">Amount of Adults</label>-->
+<!--            </div>-->
+<!--            <input type="text" class="form-control" id="adultAmount" name="adultAmount"></input>-->
+<!--            <small class="text-danger">Adult amount error message</small>-->
+<!--        </div>-->
 
         <div class="form-group">
-            <div class="text-white label-holder d-flex justify-content-center">
-                <label for="language" class="h4 mb-2">Language</label>
+            <div class="label-holder d-flex justify-content-center">
+                <label th:for="adultAmount" class="h4 mb-2 mt-3">Amount of Adults</label>
             </div>
-            <select class="browser-default custom-select" id="language" name="language">
-                <option value="">Select language</option>
-                <option value="GERMAN">German</option>
-                <option value="FRENCH">French</option>
-                <option value="SPANISH">Spanish</option>
-                <option value="ITALIAN">Italian</option>
+            <select class="form-select form-select-lg" id="adultAmount" name="roomType" th:field="*{adultAmount}">
+                <option disabled selected value="">Number of adults</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
 
-            <small class="text-danger">Language error message</small>
+            <small class="text-danger" th:errors = "*{adultAmount}">Amount of adults error message</small>
+        </div>
+
+<!--        <div class="form-group">-->
+<!--            <div class="label-holder textCol d-flex justify-content-center">-->
+<!--                <label for="childrenAmount" class="h4 mb-2">Amount of children</label>-->
+<!--            </div>-->
+<!--            <input type="text" class="form-control" id="childrenAmount" name="childrenAmount"></input>-->
+<!--            <small class="text-danger">Children amount error message</small>-->
+<!--        </div>-->
+        <div class="form-group">
+            <div class="label-holder d-flex justify-content-center">
+                <label th:for="childrenAmount" class="h4 mb-2 mt-3">Amount of children</label>
+            </div>
+            <select class="form-select form-select-lg" id="childrenAmount" name="roomType" th:field="*{childrenAmount}">
+                <option disabled selected value="">Number of children</option>
+                <option value="0">No children</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <small class="text-danger" th:errors="*{childrenAmount}">Amount of children error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder d-flex justify-content-center">
+                <label th:for="roomType" class="h4 mb-2 mt-3">Room Type</label>
+            </div>
+            <select class="form-select form-select-lg" id="roomType" name="roomType" th:field = "*{roomType}">
+                <option disabled selected value="">Select Room</option>
+                <option value="Double">Double</option>
+                <option value="Triple">Triple</option>
+                <option value="Apartment">Apartment</option>
+            </select>
+
+            <small class="text-danger" th:errors="*{roomType}">Room Type error message</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center">
-            <button type="submit" class="btn btn-warning  mb-3" value="Register">Add word</button>
+            <button type="submit" class="btn btn-warning mb-3 mt-3" value="Register">Add word</button>
         </div>
 
     </form>

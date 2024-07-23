@@ -76,3 +76,50 @@ a:hover{
     border-top-left-radius:32px;
     cursor:pointer  ;
 }
+svg{
+    width:10vw;
+    padding:1em;
+    border-radius: 32px;
+}
+#light-yellow{
+    background-color: lightgoldenrodyellow;
+}
+#light-blue{
+    background-color: lightblue;
+}
+.bg-lightgray{
+    background-color: lightgray;
+}
+.grid{
+    grid-template-columns: auto auto auto;
+    grid-gap: 15px 15px;
+    justify-items:center ;
+}
+.grid-2{
+    grid-template-columns: 30vw 30vw;
+    grid-gap:1em 12em;
+    justify-items: center;
+}
+.grid-item{
+    width:23vw;
+    height:auto;
+}
+.hr-orange{
+    height:5px;
+    border: 5px solid #bd7f04;
+    border-radius: 16px;
+}
+.check-icon{
+    width: 80px;
+    height: auto;
+    flex-shrink: 0;
+}
+.grid-2 div{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.rate-holder{
+    width: 80vw;
+    margin: 0px auto;
+}

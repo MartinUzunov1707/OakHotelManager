@@ -3,27 +3,41 @@ package bg.oakhotelmanager.model.entity;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "reservations")
-public class ReservationEntity extends BaseEntity {
-    @OneToOne(optional = false)
+public class ReservationEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @ManyToOne(optional = false)
     private UserEntity reservee;
 
     @Column(name = "check_in_date",nullable = false)
-    private Date checkInDate;
+    private LocalDate checkInDate;
 
     @Column(name = "check_out_date",nullable = false)
-    private Date checkOutDate;
+    private LocalDate checkOutDate;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private RoomEntity occupiedRoom;
 
     @Column(nullable = false)
     private Double price;
-    @OneToOne(optional = false)
+    @OneToOne
     private PaymentEntity payment;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "amount_of_children")
+    private Integer childrenAmount;
+
+    @Column(name = "amount_of_adults")
+    private Integer adultAmount;
+
 
     public UserEntity getReservee() {
         return reservee;
@@ -33,19 +47,19 @@ public class ReservationEntity extends BaseEntity {
         this.reservee = reservee;
     }
 
-    public Date getCheckInDate() {
+    public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 
@@ -71,5 +85,37 @@ public class ReservationEntity extends BaseEntity {
 
     public void setPayment(PaymentEntity payment) {
         this.payment = payment;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getChildrenAmount() {
+        return childrenAmount;
+    }
+
+    public void setChildrenAmount(Integer childrenAmount) {
+        this.childrenAmount = childrenAmount;
+    }
+
+    public Integer getAdultAmount() {
+        return adultAmount;
+    }
+
+    public void setAdultAmount(Integer adultAmount) {
+        this.adultAmount = adultAmount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

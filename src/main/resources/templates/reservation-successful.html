@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <hr class = "w-75 mx-auto">
+    <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
+        <h3 class = "opacity-75">Reservation booked successfully!</h3>
+        <h1 class = "pt-5">You are one step away from paradise on Earth!</h1>
+        <button class = "index-book-btn btn-book" id = "scrollBtn">Pay Now</button>
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

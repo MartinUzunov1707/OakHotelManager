@@ -4,11 +4,12 @@ import bg.oakhotelmanager.model.dto.RegisterDTO;
 import bg.oakhotelmanager.model.entity.UserEntity;
 import bg.oakhotelmanager.model.entity.UserRoleEntity;
 import bg.oakhotelmanager.model.enums.UserRoleEnum;
+import bg.oakhotelmanager.model.user.OakUserDetails;
 import bg.oakhotelmanager.repository.UserRepository;
 import bg.oakhotelmanager.repository.UserRoleRepository;
 import jakarta.validation.constraints.Size;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.core.userdetails.User;
+import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,8 @@ public class UserService {
         user.setComments(new ArrayList<>());
 
         userRepository.save(user);
+    }
+    public Optional<UserEntity> getUserByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 }

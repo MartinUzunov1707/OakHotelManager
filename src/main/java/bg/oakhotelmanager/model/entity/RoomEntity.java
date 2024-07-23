@@ -1,7 +1,10 @@
 package bg.oakhotelmanager.model.entity;
 
 import bg.oakhotelmanager.model.enums.RoomEnum;
+import bg.oakhotelmanager.service.impl.ReservationService;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "rooms")
@@ -14,6 +17,17 @@ public class RoomEntity extends BaseEntity{
     @Column(name = "room_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private RoomEnum roomType;
+
+    @OneToMany(mappedBy = "occupiedRoom")
+    List<ReservationEntity> reservations;
+
+    public List<ReservationEntity> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<ReservationEntity> reservations) {
+        this.reservations = reservations;
+    }
 
     public String getRoomName() {
         return roomName;
@@ -38,4 +52,5 @@ public class RoomEntity extends BaseEntity{
     public void setRoomType(RoomEnum roomType) {
         this.roomType = roomType;
     }
+
 }

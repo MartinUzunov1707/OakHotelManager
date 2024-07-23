@@ -3,17 +3,14 @@ package bg.oakhotelmanager.init;
 import bg.oakhotelmanager.model.entity.UserRoleEntity;
 import bg.oakhotelmanager.model.enums.UserRoleEnum;
 import bg.oakhotelmanager.service.impl.UserRoleService;
-import bg.oakhotelmanager.service.impl.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import javax.management.relation.Role;
-
 @Component
-public class RoleInitializer  implements CommandLineRunner {
+public class RoleInitialiser implements CommandLineRunner {
     private final UserRoleService userRoleService;
 
-    public RoleInitializer(UserRoleService userRoleService) {
+    public RoleInitialiser(UserRoleService userRoleService) {
         this.userRoleService = userRoleService;
     }
 

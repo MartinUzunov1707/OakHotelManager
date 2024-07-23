@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -26,12 +27,13 @@ public class SecurityConfig {
                                 .anyRequest()
                                 .authenticated()
                 )
+
                 .formLogin(
                         //TODO
                         formLogin -> formLogin.loginPage("/login")
                                 .usernameParameter("email")
                                 .passwordParameter("password")
-                                .defaultSuccessUrl("/",true)
+                                .defaultSuccessUrl("/")
                                 .failureForwardUrl("/")
                 )
                 .logout(
@@ -40,7 +42,12 @@ public class SecurityConfig {
                                 .logoutSuccessUrl("/")
                                 .invalidateHttpSession(true)
                 )
+
                 .build();
+    }
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/error");
     }
     @Bean
     public OakUserDetailsService userDetailsService(UserRepository userRepository){
