@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="h4 nav-item col-md-4">
-                    <a class="nav-link   h4 " href="/">Contacts</a>
+                    <a class="nav-link h4 " href="/">Contacts</a>
                 </li>
                 <li class="h4 nav-item col-md-4">
                     <a onclick = "scrollToBookSection()" class="btn btn-warning btn-lg nav-link active text-nowrap btn-book" style = "padding-right:1.5em">Book Now</a>
@@ -37,7 +37,7 @@
                     <a class="nav-link h4" th:href="@{/register}">Register</a>
                 </li>
                 <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                    <input class="btn btn" type="submit" value="Logout"/>
+                    <input class="nav-link h4" type="submit" value="Logout"/>
                 </form>
             </ul>
         </div>
