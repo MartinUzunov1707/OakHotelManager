@@ -23,15 +23,6 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/rooms")
 public class RoomController {
-
-    private final ReservationService reservationService;
-    private final UserService userService;
-
-    public RoomController(ReservationService reservationService, UserService userService) {
-        this.reservationService = reservationService;
-        this.userService = userService;
-    }
-
     @GetMapping("/double-room")
     public String viewDoubleRoom(){
         return "double-room";
@@ -43,55 +34,5 @@ public class RoomController {
     @GetMapping("/apartment")
     public String viewApartment(){
         return "apartment";
-    }
-    @GetMapping("/reservation")
-    public String viewReservation(Model model){
-        if(!model.containsAttribute("reservationDTO")){
-            model.addAttribute("reservationDTO", new ReservationDTO());
-        }
-        if(!model.containsAttribute("roomCapacityNotEnough")){
-            model.addAttribute("roomCapacityNotEnough", "");
-        }
-        return "reservation";
-    }
-
-    @PostMapping("/reservation")
-    public String doReservation(@AuthenticationPrincipal UserDetails userDetails, @Valid ReservationDTO reservationDTO, BindingResult bindingResult, RedirectAttributes attributes){
-        if(bindingResult.hasErrors()){
-            attributes.addFlashAttribute("reservationDTO", reservationDTO);
-            attributes.addFlashAttribute("org.springframework.validation.BindingResult.reservationDTO", bindingResult);
-            return "redirect:/rooms/reservation";
-        }
-        if(reservationDTO.roomType.equals("Double") && (reservationDTO.adultAmount + reservationDTO.childrenAmount/2 > 2.5)){
-            attributes.addFlashAttribute("reservationDTO", reservationDTO);
-            attributes.addFlashAttribute("roomCapacityNotEnough", String.format("The double room does not have enough capacity for %d adults and %d children. Consider booking to a bigger room.", reservationDTO.adultAmount, reservationDTO.childrenAmount));
-            return "redirect:/rooms/reservation";
-        }
-        else if(reservationDTO.roomType.equals("Triple") && (reservationDTO.adultAmount + reservationDTO.childrenAmount/2 > 3.5)){
-            attributes.addFlashAttribute("reservationDTO", reservationDTO);
-            attributes.addFlashAttribute("roomCapacityNotEnough", String.format("The triple room does not have enough capacity for %d adults and %d children. Consider booking to a bigger room.", reservationDTO.adultAmount, reservationDTO.childrenAmount));
-            return "redirect:/rooms/reservation";
-        }
-        else if(reservationDTO.roomType.equals("Apartment") && (reservationDTO.adultAmount + reservationDTO.childrenAmount/2 > 4.5)){
-            attributes.addFlashAttribute("reservationDTO", reservationDTO);
-            attributes.addFlashAttribute("roomCapacityNotEnough", String.format("The apartment does not have enough capacity for %d adults and %d children. Consider booking multiple rooms.", reservationDTO.adultAmount, reservationDTO.childrenAmount));
-            return "redirect:/rooms/reservation";
-        }
-        ReservationEntity entity = reservationService.saveReservation(reservationDTO, userDetails);
-        if(entity != null){
-            attributes.addFlashAttribute("outOfRooms", true);
-            return "redirect:/rooms/reservation";
-        }
-        else{
-            return "redirect:/rooms/reservation-successful";
-        }
-    }
-    @GetMapping("/reservation-successful")
-    private String viewReservationSuccessful(@AuthenticationPrincipal UserDetails userDetails){
-        Optional<UserEntity> userByEmail = userService.getUserByEmail(userDetails.getUsername());
-        if(reservationService.findReservationByUser(userByEmail.get()).isPresent()){
-            return "reservation-successful";
-        }
-        return "redirect:/rooms/reservation";
     }
 }
