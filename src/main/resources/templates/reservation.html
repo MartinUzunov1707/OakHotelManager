@@ -12,7 +12,7 @@
     <h4 th:if = "${outOfRooms}" class = "text-danger text-center">The Oak Hotel does not have available rooms for these dates.</h4>
     <form class="mx-auto w-25 bg-blur rounded"
           method="post"
-          th:action="@{/rooms/reservation}"
+          th:action="@{/reservation}"
           th:object="${reservationDTO}"
     >
 

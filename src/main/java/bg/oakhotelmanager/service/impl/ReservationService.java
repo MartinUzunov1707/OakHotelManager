@@ -1,7 +1,6 @@
 package bg.oakhotelmanager.service.impl;
 
 import bg.oakhotelmanager.model.dto.ReservationDTO;
-import bg.oakhotelmanager.model.entity.PaymentEntity;
 import bg.oakhotelmanager.model.entity.ReservationEntity;
 import bg.oakhotelmanager.model.entity.RoomEntity;
 import bg.oakhotelmanager.model.entity.UserEntity;
@@ -10,8 +9,6 @@ import bg.oakhotelmanager.repository.ReservationRepository;
 import bg.oakhotelmanager.repository.RoomRepository;
 import bg.oakhotelmanager.repository.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.cglib.core.Local;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -19,7 +16,6 @@ import java.util.Optional;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -99,5 +95,8 @@ public class ReservationService {
     }
     public Optional<ReservationEntity> findReservationByUser(UserEntity user){
         return reservationRepository.findReservationEntityByReservee(user);
+    }
+    public List<ReservationEntity> findAllByReservee(UserEntity user){
+        return reservationRepository.findAllByReservee(user);
     }
 }

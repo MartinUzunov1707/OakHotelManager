@@ -7,6 +7,7 @@ import bg.oakhotelmanager.service.impl.ReservationService;
 import bg.oakhotelmanager.service.impl.UserService;
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -60,7 +62,7 @@ public class ReservationController {
             return "redirect:/reservation";
         }
         ReservationEntity entity = reservationService.saveReservation(reservationDTO, userDetails);
-        if(entity != null){
+        if(entity == null){
             attributes.addFlashAttribute("outOfRooms", true);
             return "redirect:/reservation";
         }
@@ -75,5 +77,13 @@ public class ReservationController {
             return "reservation-successful";
         }
         return "redirect:/reservation";
+    }
+    @GetMapping("/all-reservations")
+    public String viewAllReservations(@AuthenticationPrincipal UserDetails userDetails, Model model){
+        UserEntity userByEmail = userService.getUserByEmail(userDetails.getUsername()).get();
+        List<ReservationEntity> reservationList = reservationService.findAllByReservee(userByEmail);
+        model.addAttribute("reservationList", reservationList);
+        model.addAttribute("isEmpty", reservationList.isEmpty());
+        return "all-reservations";
     }
 }

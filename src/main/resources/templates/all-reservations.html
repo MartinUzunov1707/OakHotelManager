@@ -5,12 +5,37 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
+    <h1 class = "text-center mt-4">All Reservations</h1>
     <hr class = "w-75 mx-auto">
-    <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
-        <h3 class = "opacity-75">Reservation booked successfully!</h3>
-        <h1 class = "pt-5">You are one step away from paradise on Earth!</h1>
-        <button class = "index-book-btn btn-book" id = "scrollBtn">Pay Now</button>
+    <div th:if="${!reservationList.isEmpty()}" class = "w-75 mx-auto">
+        <table class = "table">
+            <thead>
+            <tr>
+                <th scope="col">Name of reservation</th>
+                <th scope="col">Check In Date</th>
+                <th scope="col">Check Out Date</th>
+                <th scope="col">Occupied Room</th>
+                <th scope="col">Price</th>
+                <th scope = "col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each ="reservation : ${reservationList}">
+                    <td th:text = "${reservation.getReservee().getFullName()}"></td>
+                    <td th:text = "${reservation.getCheckInDate()}"></td>
+                    <td th:text = "${reservation.getCheckOutDate()}"></td>
+                    <td th:text = "${reservation.getOccupiedRoom().getRoomName()}"></td>
+                    <td th:text = "${reservation.getPrice()}"></td>
+                    <td class = "d-flex justify-content-center">
+                        <form th:action ="@{/add-comment/{id}(id = *{reservation.getId()})}" th:method = "POST">
+                            <button class="btn-warning btn">Add comment</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <h2 th:if ="${reservationList.isEmpty()}" class = "text-center mt-5">No Reservations yet.</h2>
 </main>
 <footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
