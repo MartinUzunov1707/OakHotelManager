@@ -31,7 +31,7 @@
                         placeholder="Password"/>
             </div>
 
-            <p class="errors alert alert-danger" th:if="${param.error}">
+            <p th:if="${loginError}" class="errors alert alert-danger mt-3" >
                 Invalid username or password.
             </p>
 

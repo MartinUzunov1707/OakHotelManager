@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mobilele
+    name: OakHotelManager
   #  thymeleaf:
   #    check-template-location: true
   #    cache: false
@@ -27,7 +27,6 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
-
 #forex:
  # api:
   #  key: ${FOREX_API_KEY:}

@@ -28,15 +28,18 @@ public class UserService {
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
     }
-    public void RegisterUser(RegisterDTO data){
+    public boolean registerUser(RegisterDTO data){
+        if (getUserByEmail(data.getEmail()).isPresent()){
+            return false;
+        }
         UserEntity user = modelMapper.map(data, UserEntity.class);
         UserRoleEntity role = userRoleRepository.getUserRoleEntityByRole(UserRoleEnum.USER);
 
         user.setPassword(passwordEncoder.encode(data.getPassword()));
         user.setRoles(List.of(role));
-        user.setComments(new ArrayList<>());
 
         userRepository.save(user);
+        return true;
     }
     public Optional<UserEntity> getUserByEmail(String email){
         return userRepository.findByEmail(email);

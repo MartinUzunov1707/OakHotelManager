@@ -10,7 +10,12 @@
     <hr class="w-75 m-auto"/>
 
     <div class="container">
-        <h2 class="text-center text-white">Register User</h2>
+        <h2 class="text-center my-3">Register User</h2>
+
+        <p th:if="${usernameTaken}" class="errors alert alert-danger my-3 w-25 text-center m-auto" >
+            Email is already taken.
+        </p>
+
         <form th:method="post"
               th:action="@{/register}"
               th:object="${registerDTO}"
@@ -22,9 +27,7 @@
                             type="text"
                             class="form-control"
                             placeholder="First name"/>
-                    <!--                <p class="errors alert alert-danger">-->
-                    <!--                    First name is required.-->
-                    <!--                </p>-->
+                    <small class = "text-danger" th:errors = "*{firstName}"></small>
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label th:for="lastName" class="font-weight-bold">Last Name</label>
@@ -33,9 +36,7 @@
                             type="text"
                             class="form-control"
                             placeholder="Last name"/>
-                    <!--                <p class="errors alert alert-danger">-->
-                    <!--                    Last name is required.-->
-                    <!--                </p>-->
+                    <small class = "text-danger" th:errors = "*{lastName}"></small>
                 </div>
             </div>
             <div class="row">
@@ -46,9 +47,7 @@
                             type="email"
                             class="form-control"
                             placeholder="Email"/>
-                    <!--                <p class="errors alert alert-danger">-->
-                    <!--                    Email is required.-->
-                    <!--                </p>-->
+                    <small class = "text-danger" th:errors = "*{email}"></small>
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label th:for="password" class="font-weight-bold">Password</label>
@@ -57,9 +56,7 @@
                             type="password"
                             class="form-control"
                             placeholder="Password"/>
-                    <!--                <p class="errors alert alert-danger">-->
-                    <!--                    Password is required.-->
-                    <!--                </p>-->
+                    <small class = "text-danger" th:errors = "*{password}"></small>
                 </div>
             </div>
 
