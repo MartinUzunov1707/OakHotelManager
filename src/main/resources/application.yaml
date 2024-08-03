@@ -32,6 +32,6 @@ spring:
   #  key: ${FOREX_API_KEY:}
    # url: "https://openexchangerates.org/api/latest.json?app_id={app_id}"
     #
-#offers:
- # api:
-    #baseUrl: "http://localhost:8081"
+comments:
+  api:
+    baseUrl: "http://localhost:8081/comments/"
