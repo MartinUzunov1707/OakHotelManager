@@ -1,10 +1,16 @@
 function scrollToBookSection(){
-    document.documentElement.scrollTo(
-        {
-            top:1500,
-            behavior:"smooth"
-        }
-    );
+    if(window.location.pathname === "/"){
+        document.documentElement.scrollTo(
+            {
+                top:1500,
+                behavior:"smooth"
+            }
+        );
+    }
+    else{
+        window.location.replace("/reservation");
+    }
+
 }
 
 function redirectToDoubleRoom(){

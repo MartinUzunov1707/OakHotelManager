@@ -7,7 +7,7 @@
 <main>
     <h1 class = "text-center mt-4">All Reservations</h1>
     <hr class = "w-75 mx-auto">
-    <div th:if="${!reservationList.isEmpty()}" class = "w-75 mx-auto">
+    <div th:if="${!reservationList.isEmpty()}" class = "w-75 mx-auto d-flex flex-column">
         <table class = "table">
             <thead>
             <tr>
@@ -26,14 +26,10 @@
                     <td th:text = "${reservation.getCheckOutDate()}"></td>
                     <td th:text = "${reservation.getOccupiedRoom().getRoomName()}"></td>
                     <td th:text = "${reservation.getPrice()}"></td>
-                    <td class = "d-flex justify-content-center">
-                        <form th:action ="@{/add-comment/{id}(id = *{reservation.getId()})}" th:method = "POST">
-                            <button class="btn-warning btn">Add comment</button>
-                        </form>
-                    </td>
                 </tr>
             </tbody>
         </table>
+        <a th:href="@{/add-comment}" class = "index-book-btn">Leave a review</a>
     </div>
     <h2 th:if ="${reservationList.isEmpty()}" class = "text-center mt-5">No Reservations yet.</h2>
 </main>
