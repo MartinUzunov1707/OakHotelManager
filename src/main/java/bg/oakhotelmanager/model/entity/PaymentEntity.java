@@ -4,8 +4,8 @@ import bg.oakhotelmanager.model.enums.PaymentTypeEnum;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "payments")
+//@Entity
+//@Table(name = "payments")
 public class PaymentEntity extends BaseEntity {
     @Column(name = "is_complete")
     private boolean isComplete;

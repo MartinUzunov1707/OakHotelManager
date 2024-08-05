@@ -26,8 +26,8 @@ public class ReservationEntity{
 
     @Column(nullable = false)
     private Double price;
-    @OneToOne
-    private PaymentEntity payment;
+//    @OneToOne
+//    private PaymentEntity payment;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -79,13 +79,13 @@ public class ReservationEntity{
         this.price = price;
     }
 
-    public PaymentEntity getPayment() {
-        return payment;
-    }
-
-    public void setPayment(PaymentEntity payment) {
-        this.payment = payment;
-    }
+//    public PaymentEntity getPayment() {
+//        return payment;
+//    }
+//
+//    public void setPayment(PaymentEntity payment) {
+//        this.payment = payment;
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;

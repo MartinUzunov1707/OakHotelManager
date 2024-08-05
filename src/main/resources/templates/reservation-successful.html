@@ -9,7 +9,7 @@
     <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
         <h3 class = "opacity-75">Reservation booked successfully!</h3>
         <h1 class = "pt-5">You are one step away from paradise on Earth!</h1>
-        <button class = "index-book-btn btn-book" id = "scrollBtn">Pay Now</button>
+        <a th:href="@{/all-reservations}" class = "index-book-btn btn-book" id = "scrollBtn">View all reservations</a>
     </div>
 </main>
 <footer th:replace="~{fragments/commons::footer}"></footer>

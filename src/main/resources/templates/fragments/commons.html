@@ -7,17 +7,15 @@
     <title>The Oak Hotel</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
+    <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/scrollToBookRooms.js"></script>
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg bg-nav" >
         <a class="h1 nav-link   nav-logo mx-5" href="/">The <div class = "text-warning">Oak</div> Hotel</a>
-        <div class="collapse navbar-collapse d-flex justify-content-center position-absolute top-50 start-50 translate-middle w-75" style="text-align: center;" id="navbarNav">
+        <div class="collapse navbar-collapse d-flex justify-content-center position-absolute top-50 start-50 translate-middle w-50" style="text-align: center;" id="navbarNav">
             <ul class="navbar-nav row w-75">
-                <li sec:authorize="isAuthenticated()" class="h4 nav-item col">
-                    <a class="nav-link h4" href="/all-reservations">My reservations</a>
-                </li>
                 <li class="h4 nav-item col">
                     <a class="nav-link h4" href="/">About Us</a>
                 </li>
@@ -39,10 +37,28 @@
                 <li class="h4 nav-item col-md-4" sec:authorize="isAnonymous()">
                     <a class="nav-link h4" th:href="@{/register}">Register</a>
                 </li>
-                <form class="form-select-lg me-5" sec:authorize="isAuthenticated()" th:action="@{/logout}"
-                      th:method="post">
-                    <input class="nav-link h4" type="submit" value="Logout"/>
-                </form>
+                <li>
+                    <div class="dropdown" sec:authorize="isAuthenticated()">
+                        <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg style = "width:7vw;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </a>
+
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" th:href="@{/all-reservations}">My Reservations</a></li>
+                            <li><a class="dropdown-item" th:href="@{/all-comments}">My Comments</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form class="" sec:authorize="isAuthenticated()" th:action="@{/logout}"
+                                          th:method="post">
+                                    <input class="nav-link text-black" type="submit" value="Logout"/>
+                                </form>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </nav>

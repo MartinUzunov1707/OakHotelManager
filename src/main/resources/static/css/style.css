@@ -123,3 +123,6 @@ svg{
     width: 80vw;
     margin: 0px auto;
 }
+.dropdown-toggle::after {
+    content: none;
+}
