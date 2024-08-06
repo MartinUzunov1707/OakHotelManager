@@ -10,7 +10,34 @@ function scrollToBookSection(){
     else{
         window.location.replace("/reservation");
     }
+}
 
+function scrollToContactsSection(){
+    if(window.location.pathname === "/"){
+        document.documentElement.scrollTo(
+            {
+                top:2000,
+                behavior:"smooth"
+            }
+        );
+    }
+    else{
+        window.location.replace("/");
+        scrollToContactsSection();
+    }
+}
+function scrollToAboutUsSection(){
+    if(window.location.pathname === "/"){
+        document.documentElement.scrollTo(
+            {
+                top:800,
+                behavior:"smooth"
+            }
+        );
+    }
+    else{
+        window.location.replace("/about-us");
+    }
 }
 
 function redirectToDoubleRoom(){

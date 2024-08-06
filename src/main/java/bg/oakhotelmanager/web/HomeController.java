@@ -31,11 +31,11 @@ public class HomeController {
         }
         return "index";
     }
-    @Scheduled(cron = "0 20 * * * *")
+    @Scheduled(cron = "0 * 22 * * *")
     private void setReportCreated(){
         reportCreated = true;
     }
-    @Scheduled(cron = "0 24 * * * *")
+    @Scheduled(cron = "0 59 23 * * *")
     private void nullifyReportCreated(){
         reportCreated = false;
     }

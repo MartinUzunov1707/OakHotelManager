@@ -126,3 +126,7 @@ svg{
 .dropdown-toggle::after {
     content: none;
 }
+#contacts-article svg{
+    width: 7vw;
+    height:auto;
+}
