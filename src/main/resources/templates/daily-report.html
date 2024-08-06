@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <h1 class = "text-center mt-4">All reservations for today</h1>
+    <hr class = "w-75 mx-auto">
+    <div th:if="${!reservationList.isEmpty()}" class = "w-75 mx-auto d-flex flex-column">
+        <table class = "table">
+            <thead>
+            <tr>
+                <th scope="col">Name of reservation</th>
+                <th scope="col">Check In Date</th>
+                <th scope="col">Check Out Date</th>
+                <th scope="col">Occupied Room</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each ="reservation : ${reservationList}">
+                <td th:text = "${reservation.getReservee().getFullName()}"></td>
+                <td th:text = "${reservation.getCheckInDate()}"></td>
+                <td th:text = "${reservation.getCheckOutDate()}"></td>
+                <td th:text = "${reservation.getOccupiedRoom().getRoomName()}"></td>
+                <td th:text = "${reservation.getPrice()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 th:if ="${reservationList.isEmpty()}" class = "text-center mt-5">No Reservations for today.</h2>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

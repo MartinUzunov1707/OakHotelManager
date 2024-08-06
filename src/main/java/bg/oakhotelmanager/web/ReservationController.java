@@ -3,10 +3,12 @@ package bg.oakhotelmanager.web;
 import bg.oakhotelmanager.model.dto.ReservationDTO;
 import bg.oakhotelmanager.model.entity.ReservationEntity;
 import bg.oakhotelmanager.model.entity.UserEntity;
+import bg.oakhotelmanager.model.enums.UserRoleEnum;
 import bg.oakhotelmanager.service.impl.ReservationService;
 import bg.oakhotelmanager.service.impl.UserService;
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,5 +88,13 @@ public class ReservationController {
         model.addAttribute("reservationList", reservationList);
         model.addAttribute("isEmpty", reservationList.isEmpty());
         return "all-reservations";
+    }
+    @GetMapping("/daily-report")
+    public String getDailyReport(@AuthenticationPrincipal UserDetails userDetails, Model model){
+        if(userDetails.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_" + UserRoleEnum.ADMIN))){
+            model.addAttribute("reservationList", reservationService.findAllByCreatedOn(LocalDate.now()));
+            return "daily-report";
+        }
+        return "redirect:/";
     }
 }
