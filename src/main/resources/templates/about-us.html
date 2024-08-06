@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main class = "w-75 mx-auto">
+    <div>
+        <h3 class = "text-center mt-5">• Since 2013 •</h3>
+        <hr class = "w-75 mx-auto">
+        <p class = "text-center h5 mb-4 text-about">
+            <strong>The Oak Hotel</strong> is a charming, family-owned retreat nestled in the picturesque <strong>Rhodopian Mountains of Bulgaria.</strong> Renowned for its warm hospitality and cozy ambiance, The Oak Hotel offers a unique blend of traditional Bulgarian charm and modern amenities. Each of the comfortable, well-appointed rooms provides stunning views of the surrounding mountains, creating a serene escape for visitors.
+        </p>
+        <p class = "text-center h5 mb-4 text-about">
+            Guests can enjoy homemade Bulgarian cuisine in the hotel's intimate restaurant, which features locally sourced ingredients and regional specialties. The hotel is ideally located for outdoor enthusiasts, offering easy access to hiking trails, cultural landmarks, and the rich natural beauty of the Rhodopes. Whether you're seeking adventure or relaxation, The Oak Hotel promises an unforgettable experience in one of Bulgaria's most enchanting regions.
+        </p>
+        <p class = "text-center h5 mb-4 text-about">
+            <strong>The Oak Hotel</strong> stands as a testament to the rich cultural heritage and natural splendor of the <strong>Rhodopian Mountains.</strong> Managed by a dedicated family with deep roots in the region, the hotel exudes a warm and inviting atmosphere that makes every guest feel at home. The rustic architecture, accented with oak wood and traditional Bulgarian decor, complements the breathtaking landscape.
+        </p>
+        <p class = "text-center h5 mb-4 text-about">
+            Guests can unwind in the lush garden, enjoy a leisurely drink on the terrace, or explore nearby attractions such as the Planetarium in Smolyan and picturesque villages. With personalized service and a commitment to sustainability, The Oak Hotel not only provides a comfortable stay but also a meaningful connection to the local environment and community. It's an ideal destination for those looking to immerse themselves in the tranquility and culture of rural Bulgaria.
+        </p>
+    </div>
+    <h3 class = "text-center mt-5">What do our guests think?</h3>
+    <hr class = "w-75 mx-auto">
+
+    <div class = "d-grid grid mb-5" >
+        <figure class ="rounded-5 bg-lightgray p-5 grid-item text-center" th:each="comment : ${commentList}">
+            <blockquote class="blockquote">
+                <p class = "h3" th:text="${comment.getDescription()}"></p>
+            </blockquote>
+            <figcaption class="blockquote-footer mt-3" style="height: 2em;font-size: 1em;" th:text="${comment.getName()}">
+
+            </figcaption>
+        </figure>
+    </div>
+
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
