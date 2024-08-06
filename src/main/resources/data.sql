@@ -1,5 +1,7 @@
 USE oakdb;
 
+INSERT INTO roles(id,role) VALUES (1,'ADMIN'), (2,'USER');
+
 INSERT INTO users VALUE (1,'admin@mail','Oak','Admin','45a6b99d5231a81620cff1098e717605bb7dadf69fa0d0237c7c422ca06d969b4263675124dc361acf2c641621a7fc14');
 
 INSERT INTO users_roles VALUE (1,1);

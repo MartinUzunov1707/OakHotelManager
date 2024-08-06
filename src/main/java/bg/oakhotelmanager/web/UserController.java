@@ -3,6 +3,9 @@ package bg.oakhotelmanager.web;
 import bg.oakhotelmanager.model.dto.RegisterDTO;
 import bg.oakhotelmanager.service.impl.UserService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,7 +53,5 @@ public class UserController {
         }
 
         return "redirect:/login";
-
-
     }
 }

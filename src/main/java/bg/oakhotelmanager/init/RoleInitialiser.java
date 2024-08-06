@@ -6,7 +6,7 @@ import bg.oakhotelmanager.service.impl.UserRoleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RoleInitialiser implements CommandLineRunner {
     private final UserRoleService userRoleService;
 
@@ -18,13 +18,14 @@ public class RoleInitialiser implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if(userRoleService.getAllRoles().size()==0){
             UserRoleEntity adminRole = new UserRoleEntity();
-            adminRole.setRole(UserRoleEnum.ADMIM);
+            adminRole.setRole(UserRoleEnum.ADMIN);
 
             UserRoleEntity userRole = new UserRoleEntity();
             userRole.setRole(UserRoleEnum.USER);
 
-            userRoleService.addRole(userRole);
             userRoleService.addRole(adminRole);
+            userRoleService.addRole(userRole);
+
         }
     }
 }

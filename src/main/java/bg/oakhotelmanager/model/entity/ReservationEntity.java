@@ -38,6 +38,16 @@ public class ReservationEntity{
     @Column(name = "amount_of_adults")
     private Integer adultAmount;
 
+    @Column(name = "created_on")
+    private Date createdOn;
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
 
     public UserEntity getReservee() {
         return reservee;
