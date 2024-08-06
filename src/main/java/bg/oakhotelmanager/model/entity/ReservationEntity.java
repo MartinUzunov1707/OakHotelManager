@@ -1,6 +1,5 @@
 package bg.oakhotelmanager.model.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -39,13 +38,13 @@ public class ReservationEntity{
     private Integer adultAmount;
 
     @Column(name = "created_on")
-    private Date createdOn;
+    private LocalDate createdOn;
 
-    public Date getCreatedOn() {
+    public LocalDate getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(Date createdOn) {
+    public void setCreatedOn(LocalDate createdOn) {
         this.createdOn = createdOn;
     }
 

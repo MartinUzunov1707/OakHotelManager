@@ -8,11 +8,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<ReservationEntity, Long> {
-    public Optional<ReservationEntity> findReservationEntityByReservee(UserEntity user);
-    public List<ReservationEntity> findAllByReservee(UserEntity user);
+    Optional<ReservationEntity> findReservationEntityByReservee(UserEntity user);
+    List<ReservationEntity> findAllByReservee(UserEntity user);
+    List<ReservationEntity> findAllByCreatedOn(LocalDate createdOn);
 }

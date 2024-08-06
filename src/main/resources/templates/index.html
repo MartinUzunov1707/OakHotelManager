@@ -9,6 +9,11 @@
         <th:block th:text="${welcomeMessage}"></th:block>
         !
     </h4>
+    <div class = "bg-success rounded-5 p-4 d-flex flex-column w-50 mx-auto mt-5" th:if="${reportCreated}">
+        <h4 class = "text-center text-white" >Daily reservation report has been created.</h4>
+        <a class = "btn btn-success text-decoration-underline text-body" style = "font-size:1.5em" th:href="@{/daily-report}">See more</a>
+    </div>
+
     <hr class = "w-75 mx-auto">
     <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
         <h3 class = "opacity-75">Rated 9.3 on Booking.com</h3>

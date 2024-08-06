@@ -32,6 +32,9 @@ public class ReservationService {
         this.mapper = mapper;
         this.userRepository = userRepository;
     }
+    public List<ReservationEntity> findAllByCreatedOn(LocalDate createdOn){
+        return reservationRepository.findAllByCreatedOn(createdOn);
+    }
 
     public ReservationEntity saveReservation(ReservationDTO reservationDTO, UserDetails userDetails){
         List<RoomEntity> roomsByRoomType = roomRepository.findAllByRoomType(RoomEnum.valueOf(reservationDTO.roomType.toUpperCase()));
@@ -44,6 +47,7 @@ public class ReservationService {
         entity.setReservee(userRepository.findByEmail(userDetails.getUsername()).get());
         entity.setOccupiedRoom(room);
         entity.setPrice(calculatePrice(entity));
+        entity.setCreatedOn(LocalDate.now());
 
         reservationRepository.save(entity);
         return entity;
