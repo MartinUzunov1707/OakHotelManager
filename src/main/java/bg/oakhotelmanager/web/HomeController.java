@@ -73,7 +73,7 @@ public class HomeController {
         }
         return commentUserDTOList;
     }
-    @Scheduled(cron = "0 * 22 * * *")
+    @Scheduled(cron = "0 * 20 * * *")
     private void setReportCreated(){
         reportCreated = true;
     }

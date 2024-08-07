@@ -61,7 +61,7 @@ public class ReservationService {
                 if((reservationDTO.getCheckInDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckOutDate().isBefore(entity.getCheckOutDate()))
                 || (reservationDTO.getCheckOutDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckOutDate().isBefore(entity.getCheckOutDate()))
                 || (entity.getCheckInDate().isAfter(reservationDTO.getCheckInDate()) && entity.getCheckInDate().isBefore(reservationDTO.getCheckOutDate()))
-                || (entity.getCheckInDate().isEqual(reservationDTO.getCheckInDate()) && entity.getCheckOutDate().isEqual(reservationDTO.getCheckOutDate()))){
+                || (entity.getCheckInDate().isEqual(reservationDTO.getCheckInDate()) || entity.getCheckOutDate().isEqual(reservationDTO.getCheckOutDate()))){
                     isOccupied = true;
                     break;
                 }

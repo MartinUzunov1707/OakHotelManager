@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="~{fragments/commons::head}"></head>
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h4 class = "text-center mt-5" th:text="#{index_welcome}">Welcome to the Oak Hotel!</h4>
+    <h4 class = "text-center mt-5" th:text="#{index_welcome}" sec:authorize="isAnonymous()">Welcome to the Oak Hotel!</h4>
+    <div class = "d-flex justify-content-center m-5" sec:authorize="isAuthenticated()">
+        <p class = "text-center h4"th:text="#{index_welcome_authenticated}">Welcome to the Oak Hotel,</p>
+        <p class ="h4 ms-2" th:text="${welcomeMessage}">Message</p>
+    </div>
     <div class = "bg-success rounded-5 p-4 d-flex flex-column w-50 mx-auto mt-5" th:if="${reportCreated}">
         <h4 class = "text-center text-white" th:text="#{index_reservation_report}">Daily reservation report has been created.</h4>
         <a class = "btn btn-success text-decoration-underline text-body" style = "font-size:1.5em" th:href="@{/daily-report}" th:text="#{index_report_see_more}">See more</a>
