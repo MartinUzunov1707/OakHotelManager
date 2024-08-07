@@ -13,7 +13,7 @@
             <tr>
                 <th scope="col" th:text="#{all_reservations_name_of_reservation}">Name of reservation</th>
                 <th scope="col" th:text="#{all_reservations_check_in_date}">Check In Date</th>
-                <th scope="col" th:text="#{all_reservations_check_out_date">Check Out Date</th>
+                <th scope="col" th:text="#{all_reservations_check_out_date}">Check Out Date</th>
                 <th scope="col" th:text="#{all_reservations_occupied_room}">Occupied Room</th>
                 <th scope="col" th:text="#{all_reservations_price}">Price</th>
                 <th scope = "col"></th>
@@ -29,7 +29,7 @@
                 </tr>
             </tbody>
         </table>
-        <a th:href="@{/add-comment}" class = "index-book-btn" th:text="#{all_reservations_leave_a_review}">Leave a review</a>
+        <a th:href="@{/add-comment}" class = "index-book-btn" th:text="#{all_comments_leave_a_review}">Leave a review</a>
     </div>
     <h2 th:if ="${reservationList.isEmpty()}" class = "text-center mt-5" th:text="#{all_reservations_no_reservations}">No Reservations yet.</h2>
 </main>

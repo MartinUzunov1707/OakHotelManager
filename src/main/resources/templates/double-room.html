@@ -88,7 +88,7 @@
         </div>
         <div th:replace="~{fragments/commons::div.services}"></div>
         <div th:replace="~{fragments/commons::div.additional-info}"></div>
-        <a href="/reservation" class = "index-book-btn m-auto mb-5">Make a reservation</a>
+        <a href="/reservation" class = "index-book-btn m-auto mb-5" th:text="#{triple_room_book}">Make a reservation</a>
     </div>
 </main>
 <footer th:replace="~{fragments/commons::footer}"></footer>

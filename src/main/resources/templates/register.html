@@ -6,7 +6,10 @@
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
     <h1 class="text-center mt-2"><span class="" th:text="#{register_heading}">Register</span></h1>
-    <h5 class = "text-center" th:text="#{register_acc}"> Already have an account? <a th:href="@{/login}" th:text="#{register_login}">Login here</a></h5>
+    <div class = "d-flex justify-content-center">
+        <p class = "text-center mb-5 h5"th:text="#{register_acc}">Already have an account?</p>
+        <a class ="h5 ms-2 text-primary" th:href="@{/login}" th:text="#{register_login}">Login here</a>
+    </div>
     <hr class="w-75 m-auto"/>
 
     <div class="container">

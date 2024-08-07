@@ -53,7 +53,7 @@ public class ReservationService {
         return entity;
     }
 
-    private RoomEntity findSuitableRoom(ReservationDTO reservationDTO, List<RoomEntity> roomsByRoomType) {
+    public RoomEntity findSuitableRoom(ReservationDTO reservationDTO, List<RoomEntity> roomsByRoomType) {
         boolean isOccupied = false;
         for(RoomEntity current : roomsByRoomType){
             if (current.getReservations().isEmpty()) return current;
