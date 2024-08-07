@@ -38,7 +38,7 @@ public class HomeController {
     @GetMapping("/")
     public String viewIndex(@AuthenticationPrincipal UserDetails userDetails, Model model){
         if(userDetails instanceof OakUserDetails){
-            model.addAttribute("welcomeMessage", ((OakUserDetails) userDetails).getFullName());
+            model.addAttribute("welcomeMessage", ((OakUserDetails) userDetails).getFullName() + "!");
             if(reportCreated && userDetails.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_" + UserRoleEnum.ADMIN))){
                 model.addAttribute("reportCreated", true);
             }
@@ -47,7 +47,7 @@ public class HomeController {
             }
         }
         else{
-            model.addAttribute("welcomeMessage", "Anonymous");
+            model.addAttribute("welcomeMessage", "");
         }
         return "index";
     }

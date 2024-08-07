@@ -23,7 +23,6 @@ function scrollToContactsSection(){
     }
     else{
         window.location.replace("/");
-        scrollToContactsSection();
     }
 }
 function scrollToAboutUsSection(){

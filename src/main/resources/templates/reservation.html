@@ -5,11 +5,11 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h1 class="text-center mt-2">Make reservation</h1>
+    <h1 class="text-center mt-2" th:text="#{reservation_heading}">Make reservation</h1>
     <hr class="w-75 mx-auto"/>
 
     <h4 th:if = "${roomCapacityNotEnough.length()>0}" th:text="${roomCapacityNotEnough}" class = "text-danger text-center">Room Capacity Not Enough</h4>
-    <h4 th:if = "${outOfRooms}" class = "text-danger text-center">The Oak Hotel does not have available rooms for these dates.</h4>
+    <h4 th:if = "${outOfRooms}" class = "text-danger text-center" th:text="#{reservation_full}">The Oak Hotel does not have available rooms for these dates.</h4>
     <form class="mx-auto w-25 bg-blur rounded"
           method="post"
           th:action="@{/reservation}"
@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <div class="label-holder textCol d-flex justify-content-center">
-                <label th:for="phoneNumber" class="h4 mb-2">Phone Number</label>
+                <label th:for="phoneNumber" class="h4 mb-2" th:text="#{reservation_phone_number}">Phone Number</label>
             </div>
             <input type="text" class="form-control" id="term" name="term" th:field="*{phoneNumber}"></input>
             <small class="text-danger" th:errors = "*{phoneNumber}">Phone number error message</small>
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <div class="label-holder textCol d-flex justify-content-center">
-                <label th:for="checkInDate" class="h4 mb-2 mt-3">Set check in date</label>
+                <label th:for="checkInDate" class="h4 mb-2 mt-3" th:text="#{reservation_check_in}">Set check in date</label>
             </div>
             <input type="date" class="form-control" id="checkInDate" name="inputDate" th:field="*{checkInDate}"/>
             <small class="text-danger" th:errors = "*{checkInDate}">Check In Date error message</small>
@@ -34,7 +34,7 @@
 
         <div class="form-group">
             <div class="label-holder textCol d-flex justify-content-center">
-                <label th:for="checkOutDate" class="h4 mb-2 mt-3">Set check out date</label>
+                <label th:for="checkOutDate" class="h4 mb-2 mt-3" th:text="#{reservation_check_out}">Set check out date</label>
             </div>
             <input type="date" class="form-control" id="checkoutDate" name="inputDate" th:field="*{checkOutDate}"/>
             <small class="text-danger" th:errors="*{checkOutDate}">Check out date error message</small>
@@ -50,10 +50,10 @@
 
         <div class="form-group">
             <div class="label-holder d-flex justify-content-center">
-                <label th:for="adultAmount" class="h4 mb-2 mt-3">Amount of Adults</label>
+                <label th:for="adultAmount" class="h4 mb-2 mt-3" th:text="#{reservation_adults}">Amount of Adults</label>
             </div>
             <select class="form-select form-select-lg" id="adultAmount" name="roomType" th:field="*{adultAmount}">
-                <option disabled selected value="">Number of adults</option>
+                <option disabled selected value="" th:text="#{reservation_adults_num}">Number of adults</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -72,14 +72,14 @@
 <!--        </div>-->
         <div class="form-group">
             <div class="label-holder d-flex justify-content-center">
-                <label th:for="childrenAmount" class="h4 mb-2 mt-3">Amount of children</label>
+                <label th:for="childrenAmount" class="h4 mb-2 mt-3" th:text="#{reservation_children}">Amount of children</label>
             </div>
             <select class="form-select form-select-lg" id="childrenAmount" name="roomType" th:field="*{childrenAmount}">
-                <option disabled selected value="">Number of children</option>
-                <option value="0">No children</option>
+                <option disabled selected value="" th:text="#{reservation_children_num}">Number of children</option>
+                <option value="0" th:text="#{reservation_no_children}">No children</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-                <option value="4">4</option>
             </select>
 
             <small class="text-danger" th:errors="*{childrenAmount}">Amount of children error message</small>
@@ -87,20 +87,20 @@
 
         <div class="form-group">
             <div class="label-holder d-flex justify-content-center">
-                <label th:for="roomType" class="h4 mb-2 mt-3">Room Type</label>
+                <label th:for="roomType" class="h4 mb-2 mt-3" th:text="#{reservation_room_heading}">Room Type</label>
             </div>
             <select class="form-select form-select-lg" id="roomType" name="roomType" th:field = "*{roomType}">
-                <option disabled selected value="">Select Room</option>
-                <option value="Double">Double</option>
-                <option value="Triple">Triple</option>
-                <option value="Apartment">Apartment</option>
+                <option disabled selected value="" th:text="#{reservation_select_room}">Select Room</option>
+                <option value="Double" th:text="#{reservation_double}">Double</option>
+                <option value="Triple" th:text="#{reservation_triple}">Triple</option>
+                <option value="Apartment" th:text="#{reservation_apartment}">Apartment</option>
             </select>
 
             <small class="text-danger" th:errors="*{roomType}">Room Type error message</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center">
-            <button type="submit" class="btn btn-warning mb-3 mt-3" value="Register">Add word</button>
+            <button type="submit" class="btn btn-warning mb-3 mt-3" value="Register" th:text="#{reservaiton_book}">Book reservation</button>
         </div>
 
     </form>

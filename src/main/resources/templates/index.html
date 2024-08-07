@@ -5,54 +5,51 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h4 class = "text-center mt-5">Welcome to the Oak Hotel,
-        <th:block th:text="${welcomeMessage}"></th:block>
-        !
-    </h4>
+    <h4 class = "text-center mt-5" th:text="#{index_welcome}">Welcome to the Oak Hotel!</h4>
     <div class = "bg-success rounded-5 p-4 d-flex flex-column w-50 mx-auto mt-5" th:if="${reportCreated}">
-        <h4 class = "text-center text-white" >Daily reservation report has been created.</h4>
-        <a class = "btn btn-success text-decoration-underline text-body" style = "font-size:1.5em" th:href="@{/daily-report}">See more</a>
+        <h4 class = "text-center text-white" th:text="#{index_reservation_report}">Daily reservation report has been created.</h4>
+        <a class = "btn btn-success text-decoration-underline text-body" style = "font-size:1.5em" th:href="@{/daily-report}" th:text="#{index_report_see_more}">See more</a>
     </div>
 
     <hr class = "w-75 mx-auto">
     <div class="bg-image text-white text-center index-image my-5 d-flex flex-column justify-content-center" style = "background-image: url(/images/oak_hotel.jpg);">
-        <h3 class = "opacity-75">Rated 9.3 on Booking.com</h3>
-        <h1 class = "pt-5">Discover paradise on Earth - The Oak Hotel</h1>
-        <button onclick = "scrollToBookSection()" class = "index-book-btn btn-book" id = "scrollBtn">Book Now</button>
+        <h3 class = "opacity-75" th:text="#{index_booking}">Rated 9.3 on Booking.com</h3>
+        <h1 class = "pt-5" th:text="#{index_discover}">Discover paradise on Earth - The Oak Hotel</h1>
+        <button onclick = "scrollToBookSection()" class = "index-book-btn btn-book" id = "scrollBtn" th:text="#{index_book_btn}">Book Now</button>
     </div>
-    <h1 class = "text-center mt-5">The Oak Hotel</h1>
-    <h6 class = "text-center mt-3">Hear the silence of the mountain</h6>
+    <h1 class = "text-center mt-5" th:text="#{index_img_heading}">The Oak Hotel</h1>
+    <h6 class = "text-center mt-3" th:text="#{index_img_heading_additional}">Hear the silence of the mountain</h6>
     <hr class = "w-75 m-auto">
 
     <div class ="d-flex about-us-article m-auto my-5 justify-content-evenly">
         <img class = "ms-5" src="/images/oakLogo.png" alt="">
         <div class = "d-flex flex-column justify-content-center w-50">
-            <p class = "h3">Hidden away in the heart of the Rhodopa Mountain, our hotel brings you a feeling of peace and quiet, away from the problems of the world. Be embraced by the mountain's hospitality. The Oak Hotel offers everything you need for your vacation.</p>
-            <a class = "index-book-btn h6" th:href="@{/about-us}">Learn more</a>
+            <p class = "h3" th:text="#{index_about_us}">Hidden away in the heart of the Rhodopa Mountain, our hotel brings you a feeling of peace and quiet, away from the problems of the world. Be embraced by the mountain's hospitality. The Oak Hotel offers everything you need for your vacation.</p>
+            <a class = "index-book-btn h6" th:href="@{/about-us}" th:text="#{index_about_us_button}">Learn more</a>
         </div>
     </div>
 
     <hr class = "w-75 m-auto">
 
-    <h1 class = "text-center mt-5">Ready to go?</h1>
-    <h4 class = "text-center mb-5">Pick the room which suits you best</h4>
+    <h1 class = "text-center mt-5" th:text="#{index_room_heading}">Ready to go?</h1>
+    <h4 class = "text-center mb-5" th:text="#{index_room_heading_additional}">Pick the room which suits you best</h4>
     <div class = "d-flex justify-content-evenly mb-5">
         <div onclick = "redirectToDoubleRoom()" class = "room-select">
             <img src="/images/double-room.jpg" alt="">
-            <h4 class = "text-center my-3 m-auto">Double room</h4>
+            <h4 class = "text-center my-3 m-auto" th:text="#{double_room_heading}">Double room</h4>
         </div>
         <div onclick = "redirectToTripleRoom()" class = "room-select">
             <img src="/images/triple-room.jpg" alt="">
-            <h4 class ="m-auto my-3 text-center">Triple room</h4>
+            <h4 class ="m-auto my-3 text-center" th:text="#{triple_room_heading}">Triple room</h4>
         </div>
         <div onclick =  "redirectToApartment()" class = "room-select">
             <img src="/images/apartment.jpg" alt="">
-            <h4 class = "text-center my-3 m-auto">Apartment</h4>
+            <h4 class = "text-center my-3 m-auto" th:text="#{apartment_heading}">Apartment</h4>
         </div>
     </div>
     <hr class = "w-75 m-auto">
-    <h1 class = "text-center mt-5">Any questions?</h1>
-    <h4 class = "text-center mb-5">Contact us at any time!</h4>
+    <h1 class = "text-center mt-5" th:text="#{index_contacts_heading}">Any questions?</h1>
+    <h4 class = "text-center mb-5" th:text="#{index_contacts_heading_additional}">Contact us at any time!</h4>
 
     <div class = "d-flex flex-column w-50 mx-auto rounded-5 bg-nav mb-5" id = "contacts-article">
         <div class = "d-flex ps-5 ms-5">
@@ -65,20 +62,20 @@
         </div>
         <div class = "d-flex ps-5 ms-5">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <h4 class = "align-self-center">Tourist Area "The Smolyan Lakes", Smolyan 4703, Bulgaria.</h4>
+            <h4 class = "align-self-center" th:text="#{index_contacts_location}">Tourist Area "The Smolyan Lakes", Smolyan 4703, Bulgaria.</h4>
         </div>
         <div class = "d-flex ps-5 ms-5">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L13.5 14.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <h4 class = "align-self-center">Reception working hours: 8:00-24:00</h4>
+            <h4 class = "align-self-center" th:text="#{index_contacts_reception}">Reception working hours: 8:00-24:00</h4>
         </div>
         <div class = "d-flex flex-column">
             <svg class = "mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="9" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle> <path d="M14.5 9.08333L14.3563 8.96356C13.9968 8.66403 13.5438 8.5 13.0759 8.5H10.75C9.7835 8.5 9 9.2835 9 10.25V10.25C9 11.2165 9.7835 12 10.75 12H13.25C14.2165 12 15 12.7835 15 13.75V13.75C15 14.7165 14.2165 15.5 13.25 15.5H10.412C9.8913 15.5 9.39114 15.2969 9.01782 14.934L9 14.9167" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 8L12 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 17V16" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <h4 class = "align-self-center">To pay with a bank transfer, please use this bank information:</h4>
+            <h4 class = "align-self-center" th:text="#{index_contacts_bank_heading}">To pay with a bank transfer, please use this bank information:</h4>
             <div class = "mx-auto mb-5">
-                <h5><strong>Correspondent: </strong> "Oak Hotel" Ltd.</h5>
-                <h5><strong>Bank: </strong> DSK Bank</h5>
-                <h5><strong>BIC: </strong> UNSICBASF</h5>
-                <h5><strong>IBAN: </strong> BG99 UN99 9999 9999 9999 99</h5>
+                <h5><strong th:text="#{index_contacts_bank_correspondent}">Correspondent: </strong> <small class = "h5" th:text="#{index_contacts_bank_correspondent_value}">"Oak Hotel" Ltd.</small></h5>
+                <h5><strong th:text="#{index_contacts_bank}">Bank: </strong> <small class = "h5" th:text="#{index_contacts_bank_value}">DSK Bank</small></h5>
+                <h5><strong>BIC: </strong> <small class = "h5">UNSICBASF</small></h5>
+                <h5><strong>IBAN: </strong> <small class = "h5">BG99 UN99 9999 9999 9999 99</small></h5>
             </div>
         </div>
     </div>

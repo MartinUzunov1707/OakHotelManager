@@ -5,15 +5,15 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h1 class = "text-center mt-4">All Comments</h1>
+    <h1 class = "text-center mt-4" th:text="#{all_comments_heading}">All Comments</h1>
     <hr class = "w-75 mx-auto">
-    <h4 th:if="${minLength}"class = "text-center text-danger border-danger">Review Length must be 5 characters!</h4>
+    <h4 th:if="${minLength}"class = "text-center text-danger border-danger" th:text="#{all_comments_review_error}">Review Length must be 5 characters!</h4>
     <div th:if="${!comments.isEmpty()}" class = "w-75 mx-auto d-grid grid mb-5">
         <div class = "grid-item rounded-5 bg-lightgray p-4" th:each = "comment : ${comments}">
             <p th:text ="${comment.getDescription()}" class = "text-center h4 mb-5"></p>
             <div class = "d-flex justify-content-evenly">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" th:text="#{all_comments_btn_edit}">
                     Edit
                 </button>
 
@@ -22,7 +22,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel" th:text="#{all_comments_modal_heading}">Modal title</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -62,8 +62,8 @@
 
     </div>
     <div th:if ="${comments.isEmpty()}">
-        <h2  class = "text-center mt-5">No reviews yet.</h2>
-        <a th:href="@{/add-comment}" class = "index-book-btn">Leave a review</a>
+        <h2  class = "text-center mt-5" th:text="#{all_comments_no_reviews}">No reviews yet.</h2>
+        <a th:href="@{/add-comment}" class = "index-book-btn" th:text="#{all_comments_leave_a_review}">Leave a review</a>
     </div>
 
 </main>

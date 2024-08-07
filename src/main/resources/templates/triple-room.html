@@ -5,11 +5,11 @@
 <body>
 <header th:replace="~{fragments/commons::nav}"></header>
 <main>
-    <h1 class ="mt-5 text-center">Triple room</h1>
+    <h1 class ="mt-5 text-center" th:text="#{triple_room_heading}">Triple room</h1>
     <hr class = "w-75 mx-auto">
 
     <div class = "mx-auto w-75">
-        <h4 class = "text-center">Gallery</h4>
+        <h4 class = "text-center" th:text="#{triple_room_gallery}">Gallery</h4>
         <div class = "d-grid grid mb-5">
             <img class = "grid-item" src="/images/triple-room-gallery/img-1.jpg" alt="">
             <img class = "grid-item" src="/images/triple-room-gallery/img-2.jpg" alt="">
@@ -22,36 +22,36 @@
             <img class = "grid-item" src="/images/triple-room-gallery/img-9.jpg" alt="">
         </div>
 
-        <h4 class = "text-center">Description</h4>
+        <h4 class = "text-center" th:text="#{triple_room_desc}">Description</h4>
         <hr class = "w-50 mx-auto">
         <p>
-            <b>Bed: </b>1 double and a singular bed or 3 singular beds.
+            <b th:text="#{triple_room_bed}">Bed: </b><small class = "h6" th:text="#{triple_room_bed_desc}">1 double and a singular bed or 3 singular beds.</small>
             <br>
-            <b>Capacity: </b>up to 3 adults.
+            <b th:text="#{triple_room_capacity}">Capacity: </b><small class = "h6" th:text="#{triple_room_capacity_desc}">up to 3 adults.</small>
             <br>
-            <b>Location: </b> second or third floor.
+            <b th:text="#{triple_room_location}">Location: </b><small class = "h6" th:text="#{triple_room_location_desc}"> second or third floor.</small>
             <br>
-            <b>Dimensions: </b> approximately 60 m².
+            <b th:text="#{triple_room_dimensions}">Dimensions: </b><small class = "h6" th:text="#{triple_room_dimensions_desc}"> approximately 60 m².</small>
             <br>
         </p>
-        <p>
+        <p th:text="#{triple_room_p1}">
             The Oak Hotel triple rooms style, spaciousness and comfort.
         </p>
-        <p>
+        <p th:text="#{triple_room_p2}">
             The natural tones, combining with the soothing green provide a sense of coziness and tranquility. Each room has a balcony, revealing an incredube view to the Rhodopa mountains.
         </p>
-        <p>
+        <p th:text="#{triple_room_p3}">
             For our ultimate comfort, you choose if you want a double room with a single bed, or three single beds. We provide an option of adding a baby cot(upon request).
         </p>
     </div>
-    <h4 class = "text-center mt-5">Rates for two</h4>
+    <h4 class = "text-center mt-5" th:text="#{apartment_rates_for_two}">Rates for two</h4>
     <hr class = "w-50 mx-auto">
     <div class = "d-flex justify-content-between my-5 rate-holder">
         <div class = "d-flex">
             <svg id= "light-yellow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
             <div class="d-flex flex-column align-items-center m-auto">
-                <h2 class = "m-auto mb-0 ms-3 text-center" > April 1st - June 30th 2024</h2>
-                <p class = "align-self-center m-auto">
+                <h2 class = "m-auto mb-0 ms-3 text-center" th:text="#{apartment_rates_2_spring}"> April 1st - June 30th 2024</h2>
+                <p class = "align-self-center m-auto" th:text="#{triple_room_rates_2_spring}">
                     Monday-Sunday -> BGN 155
                 </p>
             </div>
@@ -59,22 +59,22 @@
         <div class = "d-flex">
             <svg id = "light-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
             <div class="d-flex flex-column align-content-center m-auto">
-                <h2 class = "m-auto ms-3 mb-0 text-center">July 1st - September 30th 2024</h2>
-                <p class="m-auto align-self-center">
+                <h2 class = "m-auto ms-3 mb-0 text-center" th:text="#{apartment_rates_2_summer}">July 1st - September 30th 2024</h2>
+                <p class="m-auto align-self-center" th:text="#{triple_room_rates_2_summer}">
                     Monday-Sunday -> BGN 170
                 </p>
             </div>
         </div>
     </div>
 
-    <h4 class = "text-center">Rates for three</h4>
+    <h4 class = "text-center" th:text="#{apartment_rates_for_three}">Rates for three</h4>
     <hr class = "w-50 mx-auto">
     <div class = "d-flex justify-content-between my-5 rate-holder">
         <div class = "d-flex">
             <svg id= "light-yellow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
             <div class="d-flex flex-column align-items-center m-auto">
-                <h2 class = "m-auto mb-0 ms-3 text-center" > April 1st - June 30th 2024</h2>
-                <p class = "align-self-center m-auto">
+                <h2 class = "m-auto mb-0 ms-3 text-center" th:text="#{apartment_rates_2_spring}"> April 1st - June 30th 2024</h2>
+                <p class = "align-self-center m-auto" th:text="#{triple_room_rates_3_spring}">
                     Monday-Sunday -> BGN 170
                 </p>
             </div>
@@ -82,8 +82,8 @@
         <div class = "d-flex">
             <svg id = "light-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
             <div class="d-flex flex-column align-content-center m-auto">
-                <h2 class = "m-auto ms-3 mb-0 text-center">July 1st - September 30th 2024</h2>
-                <p class="m-auto align-self-center">
+                <h2 class = "m-auto ms-3 mb-0 text-center" th:text="#{apartment_rates_2_summer}">July 1st - September 30th 2024</h2>
+                <p class="m-auto align-self-center" th:text="#{triple_room_rates_3_summer}">
                     Monday-Sunday -> BGN 190
                 </p>
             </div>
@@ -91,117 +91,9 @@
     </div>
     </div>
     <div class = "mx-auto w-75 d-flex flex-column justify-content-center">
-        <h4 class = "text-center">Services</h4>
-        <hr class = "w-75 mx-auto mb-5">
-        <div class = "d-grid grid my-5">
-            <div class = "d-flex flex-column align-items-center justify-content-between grid-item">
-                <svg viewBox="0 -41.13 445.11 445.11" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#000000;}</style> </defs> <title></title> <g data-name="Capa 2" id="Capa_2"> <g id="Outline"> <path class="cls-1" d="M436.61,314.76H398.39A31.06,31.06,0,0,0,392,278c.22-.22.45-.42.66-.64a31.12,31.12,0,0,0-.67-44.69c.23-.21.46-.42.67-.64a31.11,31.11,0,0,0-.67-44.68l.67-.64A31.11,31.11,0,0,0,392,142l.67-.64a31.16,31.16,0,0,0-22-53.2H312.1V62.38a21.18,21.18,0,0,0-21.16-21.16h-23a45.23,45.23,0,0,0-90.11,0h-23a21.19,21.19,0,0,0-21.16,21.16V88.15H74.46A31.14,31.14,0,0,0,53.09,142c-.22.21-.45.41-.67.63a31.12,31.12,0,0,0,.67,44.69c-.22.21-.45.41-.67.63a31.12,31.12,0,0,0,.67,44.69l-.67.64a31.11,31.11,0,0,0,.68,44.69,31.07,31.07,0,0,0-6.38,36.82H8.5a8.51,8.51,0,0,0-8.5,8.5,39.64,39.64,0,0,0,39.59,39.6H405.52a39.64,39.64,0,0,0,39.59-39.6A8.51,8.51,0,0,0,436.61,314.76ZM384.81,210a14.17,14.17,0,0,1-14.17,14.16H294.58V195.8h76.06A14.18,14.18,0,0,1,384.81,210Zm0-45.32a14.17,14.17,0,0,1-14.17,14.16H294.58V150.48h76.06A14.18,14.18,0,0,1,384.81,164.64Zm0-45.32a14.17,14.17,0,0,1-14.17,14.16H294.58V105.15h76.06A14.18,14.18,0,0,1,384.81,119.32ZM222.86,17a28.29,28.29,0,0,1,28,24.22h-4.51a24.36,24.36,0,0,0-23.45-17.89,3.5,3.5,0,0,0,0,7,17.32,17.32,0,0,1,16.06,10.89h-44A28.29,28.29,0,0,1,222.86,17ZM150.62,62.38a4.17,4.17,0,0,1,4.16-4.16H290.94a4.16,4.16,0,0,1,4.16,4.16V88.15h-9a8.51,8.51,0,0,0-8.5,8.5v131a4.45,4.45,0,0,1-.34,1.73,4.57,4.57,0,0,1-1,1.44,4.5,4.5,0,0,1-.68.56,4.5,4.5,0,0,1-5.66-.56,4.71,4.71,0,0,1-1-1.44,4.46,4.46,0,0,1-.35-1.73v-131a8.5,8.5,0,0,0-8.5-8.5H234.64a8.51,8.51,0,0,0-8.5,8.5v86.74h0c0,.1,0,.19,0,.28a3.65,3.65,0,0,1-.2,1.09,4.43,4.43,0,0,1-1.1,1.8,4.5,4.5,0,0,1-.68.56,4.45,4.45,0,0,1-2.49.75,4.32,4.32,0,0,1-1-.13,4.45,4.45,0,0,1-2.14-1.18A5.73,5.73,0,0,1,218,186a4.49,4.49,0,0,1-.64-1.25,4.21,4.21,0,0,1-.2-1.1,2.64,2.64,0,0,0,0-.28V96.65a8.5,8.5,0,0,0-8.5-8.5H165.86V67.32a3.5,3.5,0,0,0-7,0V88.15h-8.24Zm101,71.1h-8.48V105.15h8.48Zm-8.48,17h8.48V178.8h-8.48ZM60.29,119.32a14.17,14.17,0,0,1,14.17-14.17H200.18v28.33H74.46A14.18,14.18,0,0,1,60.29,119.32Zm0,45.32a14.15,14.15,0,0,1,14.17-14.16H200.18V178.8H74.46A14.18,14.18,0,0,1,60.29,164.64Zm0,45.32A14.15,14.15,0,0,1,74.46,195.8H204.13l.16.2c.26.35.52.69.79,1l.3.36c.35.41.71.81,1.09,1.19a21.43,21.43,0,0,0,27.67,2.28,20.77,20.77,0,0,0,2.71-2.27c.39-.39.76-.79,1.11-1.21l.27-.32c.29-.35.58-.72.85-1.1l.12-.15h12.42v28.32H74.46A14.18,14.18,0,0,1,60.29,210ZM256.4,241.12l.05.06c.46.56.95,1.1,1.46,1.62a21.5,21.5,0,0,0,28.8,1.44,19.54,19.54,0,0,0,1.58-1.44c.52-.52,1-1.06,1.46-1.62l.06-.06h80.83a14.16,14.16,0,1,1,0,28.32H74.46a14.16,14.16,0,1,1,0-28.32ZM60.3,300.6a14.17,14.17,0,0,1,14.16-14.16H370.65a14.16,14.16,0,1,1,0,28.32H74.46A14.17,14.17,0,0,1,60.3,300.6Zm345.22,45.26H39.59a22.62,22.62,0,0,1-20.93-14.1H426.45A22.64,22.64,0,0,1,405.52,345.86Z" id="Pancakes"></path> </g> </g> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Breakfast</strong></h5>
-                    <p class = "text-center">Start your day with a smile! Enjoy a hearty breakfast made with local organic produce!</p>
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center justify-content-between grid-item">
-                <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(0 -1)"> <g> <g> <path d="M204.8,444.733h238.933V274.067H204.8V444.733z M290.133,308.2c0-5.12,3.413-8.533,8.533-8.533H332.8 c18.773,0,34.133,15.36,34.133,34.133c0,18.773-15.36,34.133-34.133,34.133h-25.6V410.6c0,5.12-3.413,8.533-8.533,8.533 s-8.533-3.413-8.533-8.533V308.2z"></path> <path d="M349.867,333.8c0-9.387-7.68-17.067-17.067-17.067h-25.6v34.133h25.6C342.187,350.867,349.867,343.187,349.867,333.8z"></path> <path d="M486.4,111.933c14.507,0,25.6-11.093,25.6-25.6s-11.093-25.6-25.6-25.6H51.2V43.667c0-14.507-11.093-25.6-25.6-25.6 C11.093,18.067,0,29.16,0,43.667V282.6c0,14.507,11.093,25.6,25.6,25.6c14.507,0,25.6-11.093,25.6-25.6v-17.067 c0-78.507,59.733-144.213,136.533-152.747v110.08h-25.6c-5.12,0-8.533,3.413-8.533,8.533v256c0,5.12,3.413,8.533,8.533,8.533 H486.4c5.12,0,8.533-3.413,8.533-8.533v-256c0-5.12-3.413-8.533-8.533-8.533h-25.6V111.933H486.4z M51.2,191.293v-79.36h79.36 C96.427,129,68.267,157.16,51.2,191.293z M204.8,111.933h238.933v110.933H204.8V111.933z M460.8,453.267 c0,5.12-3.413,8.533-8.533,8.533h-256c-5.12,0-8.533-3.413-8.533-8.533V265.533c0-5.12,3.413-8.533,8.533-8.533h256 c5.12,0,8.533,3.413,8.533,8.533V453.267z"></path> </g> </g> </g> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Free Parking</strong></h5>
-                    <p class = "text-center">Our two spacious parking lots accomodate all guests of the hotel.</p>
-                </div>
-
-            </div>
-            <div class = "d-flex flex-column align-items-center justify-content-between grid-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 9.96004C9.63 7.15004 14.37 7.15004 18 9.96004" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.59998 13.05C10.27 10.99 13.74 10.99 16.41 13.05" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9.79999 16.1401C11.13 15.1101 12.87 15.1101 14.2 16.1401" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>High Speed WiFi</strong></h5>
-                    <p class = "text-center">Keep in touch with your loved ones and colleagues while nestled in the mountains!</p>
-                </div>
-
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg fill="#000000" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 388.359 388.359" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M363.228,345.882c-0.59,5.491-5.514,9.466-11.012,8.873c-8.099-0.87-15.051-2.256-20.662-4.117 c-16.85-5.584-54.331-5.521-77.119,0.128c-12.8,3.173-30.283,5.067-47.32,5.068c-15.538,0-30.704-1.575-41.623-5.195 c-16.849-5.586-54.328-5.522-77.119,0.127c-5.813,1.44-12.483,2.607-19.827,3.469c-5.482,0.651-10.453-3.281-11.098-8.766 c-0.644-5.485,3.28-10.454,8.766-11.098c6.513-0.765,12.35-1.78,17.349-3.019c23.626-5.854,65.67-7.173,88.223,0.302 c17.155,5.688,54.254,5.544,77.839-0.301c23.623-5.857,65.668-7.174,88.225,0.301c4.206,1.395,9.913,2.507,16.507,3.216 C359.847,335.46,363.819,340.391,363.228,345.882z M354.355,293.245c-6.594-0.709-12.301-1.821-16.507-3.216 c-22.557-7.475-64.602-6.158-88.225-0.301c-23.585,5.844-60.684,5.988-77.839,0.301c-22.553-7.475-64.597-6.156-88.223-0.302 c-4.999,1.238-10.836,2.254-17.349,3.019c-5.485,0.644-9.409,5.612-8.766,11.098c0.645,5.485,5.615,9.422,11.098,8.766 c7.344-0.861,14.014-2.028,19.827-3.469c22.791-5.649,60.271-5.713,77.119-0.127c10.919,3.62,26.085,5.195,41.623,5.195 c17.037-0.001,34.521-1.896,47.32-5.068c22.788-5.649,60.27-5.712,77.119-0.128c5.611,1.861,12.563,3.247,20.662,4.117 c5.498,0.594,10.422-3.381,11.012-8.873C363.819,298.765,359.847,293.834,354.355,293.245z M280.923,73.707 c0-22.708,18.474-41.183,41.182-41.183s41.182,18.475,41.182,41.183c0,22.707-18.474,41.18-41.182,41.18 S280.923,96.414,280.923,73.707z M300.923,73.707c0,11.679,9.502,21.18,21.182,21.18s21.182-9.501,21.182-21.18 c0-11.68-9.502-21.183-21.182-21.183S300.923,62.028,300.923,73.707z M388.359,190.195v5.774v29.946 c0,22.027-17.92,39.947-39.946,39.947H72.254c-22.026,0-39.946-17.92-39.946-39.947c0-22.026,17.92-39.946,39.946-39.946h201.653 c2.172-29.635,26.96-53.087,57.14-53.087C362.649,132.882,388.359,158.592,388.359,190.195z M293.972,185.969h74.15 c-2.106-18.592-17.93-33.087-37.075-33.087S296.078,167.377,293.972,185.969z M368.359,205.969h-84.625H72.254 c-10.998,0-19.946,8.948-19.946,19.946c0,10.999,8.948,19.947,19.946,19.947h276.159c10.998,0,19.946-8.948,19.946-19.947V205.969z M43.769,175.585l-26.6,27.355c-1.96,2.016-4.563,3.028-7.17,3.028c-2.513,0-5.027-0.94-6.971-2.831 c-3.959-3.85-4.048-10.181-0.197-14.141l29.545-30.384c0.016-0.017,0.034-0.03,0.05-0.047c0.033-0.033,0.065-0.066,0.098-0.098 c0.016-0.015,0.028-0.032,0.044-0.047l52.484-51.107c14.985-14.592,38.458-14.59,53.439,0l49.572,48.271h21.441 c21.506,0,42.104-9.171,56.512-25.161c0.198-0.227,1.635-1.938,8.91-11.693c3.303-4.426,9.568-5.339,13.995-2.038 c4.427,3.302,5.34,9.567,2.038,13.995c-8.361,11.211-9.569,12.552-10.085,13.124c-18.194,20.192-44.208,31.773-71.37,31.773H43.769z M64.148,155.585h95.249l-34.858-33.943c-7.159-6.972-18.374-6.972-25.533,0L64.148,155.585z"></path> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Relax Zone</strong></h5>
-                    <p class = "text-center">Relaxation time! Enjoy our spa center!</p>
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M223.8,223.771l72.733-17.158c3.156-0.983,35.744-24.385,35.744-24.385v80.211h116.056v-83.646h0.001 c0-40.386-32.739-73.125-73.125-73.125h-23.673c-0.562,0-1.121,0.02-1.676,0.05c-5.767-0.371-11.677,1.459-16.355,5.579 l-54.79,48.178l-68.324,21.217c-11.899,3.703-18.539,16.349-14.835,28.243C199.258,220.833,211.901,227.474,223.8,223.771z"></path> <path d="M94.768,150.19c3.136,5.073,8.563,7.863,14.119,7.863c2.975,0,5.987-0.802,8.704-2.481 c7.789-4.815,10.2-15.034,5.383-22.823c-3.616-5.847-1.863-14.053,1.454-26.873c3.564-13.774,7.998-30.916-1.293-46.593 c-4.668-7.876-14.836-10.479-22.719-5.809c-7.878,4.669-10.479,14.841-5.809,22.719c2.26,3.812-0.051,12.74-2.284,21.376 C88.367,112.857,83.444,131.88,94.768,150.19z"></path> <path d="M147.855,150.189c3.136,5.073,8.564,7.864,14.12,7.864c2.975,0,5.987-0.801,8.703-2.479 c7.79-4.815,10.201-15.035,5.385-22.823c-3.616-5.848-1.864-14.054,1.453-26.875c3.564-13.773,7.998-30.915-1.292-46.591 c-4.667-7.876-14.841-10.481-22.719-5.811s-10.48,14.841-5.811,22.719c2.261,3.813-0.05,12.742-2.283,21.377 C141.457,112.857,136.535,131.88,147.855,150.189z"></path> <path d="M16.582,391.851C7.424,391.851,0,399.276,0,408.433s7.424,16.582,16.582,16.582h20.576l28.334-33.164H16.582z"></path> <path d="M495.418,391.851H163.49l-7.687,25.756c-0.762,2.574-1.754,5.043-2.947,7.408h342.563 c9.158,0,16.582-7.424,16.582-16.582S504.576,391.851,495.418,391.851z"></path> <path d="M160.844,237.18c-9.158,0-16.582,7.424-16.582,16.582c0,3.38,1.017,6.521,2.754,9.143 c2.969,4.48,8.051,7.439,13.828,7.439h18.512c5.973,0,11.193-3.169,14.112-7.906c1.556-2.526,2.47-5.491,2.47-8.676 c0-9.158-7.424-16.582-16.582-16.582H160.844z"></path> <path d="M232.352,237.18c-9.158,0-16.582,7.424-16.582,16.582c0,3.185,0.913,6.15,2.47,8.676 c2.919,4.738,8.138,7.906,14.112,7.906h18.512c5.973,0,11.193-3.169,14.112-7.906c1.557-2.526,2.47-5.491,2.47-8.676 c0-9.158-7.424-16.582-16.582-16.582H232.352z"></path> <path d="M268.216,95.742c8.921,12.232,25.326,15.775,38.34,8.932c2.897-2.114,6.243-4.553,10.124-7.384 c3.879-2.829,7.223-5.268,10.12-7.38c10.493-10.301,12.132-27.004,3.211-39.236l-9.552-13.099 c-9.807-13.447-28.658-16.398-42.106-6.591l-13.099,9.553c-13.447,9.807-16.398,28.658-6.591,42.106L268.216,95.742z"></path> <path d="M41.677,354.822c3.587,0,7.727-0.001,12.53-0.001c4.801,0.001,8.939,0.001,12.525,0.001 c14.548-2.139,25.714-14.668,25.714-29.809v-16.212c0-16.644-13.492-30.136-30.137-30.136H46.1 c-16.644,0-30.136,13.492-30.136,30.136v16.212C15.964,340.152,27.131,352.682,41.677,354.822z"></path> <path d="M457.174,361.028c21.12,0,38.242-17.121,38.242-38.24c0.002-21.12-17.119-38.241-38.239-38.241H154.481 c-15.869,0-29.48,9.668-35.266,23.435c-1.047,1.684-1.907,3.518-2.496,5.51l-24.055,80.592l-47.416,55.497 c-8.099,9.468-6.989,23.707,2.478,31.806c9.467,8.101,23.707,6.991,31.807-2.476l49.468-57.903 c0.381-0.444,0.72-0.909,1.06-1.373c2.022-2.349,3.603-5.138,4.539-8.304l15.105-50.609c1.565,0.195,3.156,0.306,4.773,0.306 H457.174z"></path> </g> </g> </g> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Massages</strong></h5>
-                    <p class = "text-center">Treat yourself to a calming and relaxing massage by our certified professionals.</p>
-
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style> </defs> <title></title> <g data-name="Layer 2" id="Layer_2"> <rect class="cls-1" height="24" width="10" x="4" y="7"></rect> <path class="cls-1" d="M6,1h6a4,4,0,0,1,4,4V7a0,0,0,0,1,0,0H2A0,0,0,0,1,2,7V5A4,4,0,0,1,6,1Z"></path> <line class="cls-1" x1="4" x2="14" y1="19" y2="19"></line> <rect class="cls-1" height="6" width="4" x="7" y="10"></rect> <line class="cls-1" x1="4" x2="14" y1="27" y2="27"></line> <line class="cls-1" x1="4" x2="14" y1="23" y2="23"></line> <polyline class="cls-1" points="12 19 18 19 28 31 31 31"></polyline> <line class="cls-1" x1="18" x2="18" y1="20" y2="31"></line> <line class="cls-1" x1="23" x2="23" y1="25" y2="31"></line> </g> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Kids' playroom</strong></h5>
-                    <p class = "text-center">The perfect place for children.</p>
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 21L12 17L17 21M7.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V12.2C3 13.8802 3 14.7202 3.32698 15.362C3.6146 15.9265 4.07354 16.3854 4.63803 16.673C5.27976 17 6.11984 17 7.8 17Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Cable TV</strong></h5>
-                    <p class = "text-center">Follow your favourite shows, stay up to date with the news. </p>
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <path class="st0" d="M19.5,7C15.4,2.9,8.6,3.1,4.8,7.5c-3.6,4.2-3,10.5,1,14.3c3.7,3.5,6.5,4,9,3c2.2-0.9,4.6-0.4,6.2,1.3l3.1,3.5 c0.3,0.4,1,0.4,1.3,0l2.5-2.5c0.4-0.4,0.4-1,0-1.3l-3.4-3c-1.8-1.6-2.2-4-1.4-6.2C24,13.9,23.5,11,19.5,7z"></path> <line class="st0" x1="9.8" y1="24.5" x2="22.7" y2="11.5"></line> <circle class="st0" cx="27" cy="5" r="3"></circle> </g></svg>
-                <div>
-                    <h5 class = "text-center"><strong>Games</strong></h5>
-                    <p class = "text-center">Have fun with friends and loved ones in our freshly renovated games room. Including billiards, racecar simulator, air hockey and more!</p>
-
-                </div>
-            </div>
-            <div class = "d-flex flex-column align-items-center grid-item justify-content-between">
-                <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M503.983,448.935h-12.148l-41.897-83.794c-1.954-3.909-6.848-5.539-10.756-3.585c-3.907,1.953-5.538,6.848-3.585,10.755 l38.312,76.624h-213.49l60.484-120.969l6.387,6.387c3.088,3.087,8.251,3.087,11.338,0l11.433-11.434l11.433,11.434 c3.132,3.131,8.207,3.131,11.338,0l11.433-11.434l11.433,11.434c3.089,3.088,8.249,3.088,11.338,0l6.388-6.387l11.06,22.119 c1.98,3.96,6.794,5.567,10.756,3.585c3.959-1.98,5.565-6.795,3.585-10.755l-64.491-128.98c-2.897-5.793-11.444-5.793-14.34,0 l-9.932,19.863l-35.644-71.288c-0.006-0.012-0.012-0.023-0.018-0.035L263.167,60.014c-2.897-5.793-11.444-5.793-14.34,0 L197.599,162.47c-0.009,0.017-0.017,0.034-0.026,0.051l-69.841,139.686l-9.932-19.864c-2.897-5.793-11.444-5.793-14.34,0 L20.165,448.935H8.017c-4.428,0-8.017,3.589-8.017,8.017s3.588,8.017,8.017,8.017h478.848c0.007,0,0.015,0.001,0.022,0.001 c0.01,0,0.018-0.001,0.028-0.001h17.068c4.428,0,8.017-3.589,8.017-8.017S508.412,448.935,503.983,448.935z M367.165,235.446 l38.703,77.404l-4.498,4.498l-11.433-11.434c-3.132-3.131-8.207-3.131-11.338,0l-11.434,11.434l-11.433-11.434 c-3.132-3.131-8.207-3.131-11.338,0l-11.434,11.433l-4.498-4.498L367.165,235.446z M256,81.525l41.553,83.104l-7.349,7.349 l-11.433-11.434c-3.132-3.131-8.207-3.131-11.338,0L256,171.978l-11.433-11.434c-3.132-3.131-8.207-3.131-11.338,0l-11.434,11.434 l-7.348-7.349L256,81.525z M110.63,303.855l35.852,71.703l-1.647,1.647l-11.433-11.434c-3.132-3.131-8.207-3.131-11.338,0 l-11.434,11.434l-11.433-11.434c-3.132-3.131-8.207-3.131-11.338,0l-11.434,11.433l-1.647-1.647L110.63,303.855z M38.09,448.935 l29.131-58.26l3.537,3.537c3.088,3.087,8.251,3.087,11.338,0l11.433-11.434l11.433,11.434c3.132,3.131,8.207,3.131,11.338,0 l11.433-11.434l11.433,11.434c3.089,3.088,8.249,3.088,11.338,0l3.537-3.537l29.131,58.26H38.09z M201.093,448.935 l-64.401-128.802l70.196-140.386l9.237,9.237c3.132,3.131,8.207,3.131,11.338,0l11.433-11.434l11.433,11.434 c3.132,3.131,8.207,3.131,11.338,0L273.1,177.55l11.433,11.434c3.089,3.088,8.249,3.088,11.338,0l9.237-9.237l35.808,71.616 c0.059,0.118,0.128,0.226,0.191,0.339l-98.616,197.233H201.093z"></path> </g> </g> <g> <g> <path d="M469.779,81.235c-0.18,0-0.359,0.001-0.539,0.004c0.003-0.18,0.004-0.358,0.004-0.539c0-18.566-15.105-33.67-33.67-33.67 c-18.566,0-33.67,15.105-33.67,33.67c0,0.18,0.001,0.359,0.004,0.539c-0.18-0.002-0.359-0.004-0.539-0.004 c-18.566,0-33.67,15.104-33.67,33.67s15.105,33.67,33.67,33.67h68.409c18.566,0,33.67-15.105,33.67-33.67 S488.344,81.235,469.779,81.235z M469.779,132.542H401.37c-9.725,0-17.637-7.912-17.637-17.637s7.912-17.637,17.637-17.637 c2.659,0,5.213,0.576,7.59,1.712c3.065,1.465,6.722,0.839,9.126-1.564c2.403-2.403,3.029-6.06,1.564-9.126 c-1.136-2.377-1.712-4.93-1.712-7.59c0-9.725,7.912-17.637,17.637-17.637s17.637,7.912,17.637,17.637 c0,2.659-0.576,5.213-1.712,7.59c-1.465,3.066-0.839,6.723,1.564,9.126c2.404,2.404,6.062,3.029,9.126,1.564 c2.377-1.136,4.93-1.712,7.59-1.712c9.725,0,17.637,7.912,17.637,17.637S479.504,132.542,469.779,132.542z"></path> </g> </g> <g> <g> <path d="M110.092,158.2c0.003-0.18,0.004-0.358,0.004-0.539c0-18.566-15.104-33.67-33.67-33.67s-33.67,15.104-33.67,33.67 c0,0.18,0.001,0.359,0.004,0.539c-0.18-0.002-0.359-0.004-0.539-0.004c-18.566,0-33.67,15.104-33.67,33.67 s15.105,33.67,33.67,33.67h68.409c18.566,0,33.67-15.105,33.67-33.67C144.302,173.121,128.888,157.941,110.092,158.2z M110.63,209.503H42.221c-9.725,0-17.637-7.912-17.637-17.637s7.912-17.637,17.637-17.637c2.659,0,5.213,0.576,7.59,1.712 c3.065,1.467,6.721,0.839,9.126-1.564c2.403-2.403,3.029-6.06,1.564-9.126c-1.136-2.377-1.712-4.93-1.712-7.59 c0-9.725,7.912-17.637,17.637-17.637s17.637,7.912,17.637,17.637c0,2.659-0.576,5.213-1.712,7.59 c-1.451,3.034-0.813,6.75,1.564,9.126c2.376,2.375,6.093,3.015,9.126,1.564c2.377-1.136,4.93-1.712,7.59-1.712 c9.725,0,17.637,7.912,17.637,17.637S120.355,209.503,110.63,209.503z"></path> </g> </g> </g></svg>
-                <div>
-                    <h5 class = text-center><strong>Balcony</strong></h5>
-                    <p class = "text-center">Let your heart soar through the mountains! Every balcony has a wonderful view to the landscape!</p>
-
-                </div>
-            </div>
-        </div>
-        <div class = "bg-lightgray rounded-5 p-3 mb-5">
-            <h4 class = "text-center mb-3">Additional information</h4>
-            <hr class = "w-75 mx-auto hr-orange">
-            <div class = "d-grid grid-2">
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Reception's operating hours are from 8 a.m. to 8 p.m.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Relaxation area's operating hours are from 3 p.m. to 8 p.m.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Check-in is after 2 p.m.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Check-out is until 12 pm.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Breakfast is from 8:30 a.m. to 10 a.m.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Restaurant is open all day from 8:30 a.m. to midnight.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Lunch can be ordered after 12:30 p.m.</p>
-                </div>
-                <div>
-                    <svg class = "check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    <p class ="ms-2 d-flex h4 text-center">Last kitchen orders are at 10:00 p.m.</p>
-                </div>
-            </div>
-        </div>
-        <a href="/reservation" class = "index-book-btn m-auto mb-5">Make a reservation</a>
+        <div th:replace="~{fragments/commons::div.services}"></div>
+        <div th:replace="~{fragments/commons::div.additional-info}"></div>
+        <a href="/reservation" class = "index-book-btn m-auto mb-5" th:text="#{triple_room_book}">Make a reservation</a>
     </div>
     </div>
 </main>
