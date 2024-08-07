@@ -76,7 +76,7 @@ public class ReservationController {
     @GetMapping("/reservation-successful")
     private String viewReservationSuccessful(@AuthenticationPrincipal UserDetails userDetails){
         Optional<UserEntity> userByEmail = userService.getUserByEmail(userDetails.getUsername());
-        if(reservationService.findReservationByUser(userByEmail.get()).isPresent()){
+        if(reservationService.findAllByReservee(userByEmail.get()).size()>0){
             return "reservation-successful";
         }
         return "redirect:/reservation";

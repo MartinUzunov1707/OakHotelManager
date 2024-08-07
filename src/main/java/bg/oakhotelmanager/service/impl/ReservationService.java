@@ -58,9 +58,10 @@ public class ReservationService {
         for(RoomEntity current : roomsByRoomType){
             if (current.getReservations().isEmpty()) return current;
             for (ReservationEntity entity : current.getReservations()){
-                if((reservationDTO.getCheckInDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckInDate().isBefore(entity.getCheckOutDate()))
-                || reservationDTO.getCheckOutDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckOutDate().isBefore(entity.getCheckOutDate())
-                || entity.getCheckInDate().isAfter(reservationDTO.getCheckInDate()) && entity.getCheckInDate().isBefore(reservationDTO.getCheckOutDate())){
+                if((reservationDTO.getCheckInDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckOutDate().isBefore(entity.getCheckOutDate()))
+                || (reservationDTO.getCheckOutDate().isAfter(entity.getCheckInDate()) && reservationDTO.getCheckOutDate().isBefore(entity.getCheckOutDate()))
+                || (entity.getCheckInDate().isAfter(reservationDTO.getCheckInDate()) && entity.getCheckInDate().isBefore(reservationDTO.getCheckOutDate()))
+                || (entity.getCheckInDate().isEqual(reservationDTO.getCheckInDate()) && entity.getCheckOutDate().isEqual(reservationDTO.getCheckOutDate()))){
                     isOccupied = true;
                     break;
                 }
